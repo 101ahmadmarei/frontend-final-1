@@ -1,0 +1,29 @@
+.Table-container{
+    width: 55%;
+    padding: 0;
+    margin: 0;
+    
+}
+.Table-header{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #0000001F;
+}
+
+.product-details{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Table-header > p{
+    padding: 5px;
+    margin: 0;
+    font-weight: 500;
+}
+
+.product-details > p {
+    padding: 5px;
+    margin: 0;
+    font-weight: 500;
+}
