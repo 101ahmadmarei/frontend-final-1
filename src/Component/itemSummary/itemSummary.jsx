@@ -6,7 +6,7 @@ function ItemSummary() {
     <div className='item-summary-container'>
 
         <div className='image-container'>
-            <img className='image' src={require('../static/images/bag.jpg')} alt='bag' width={'100%'} height={'100%'}/>
+            <img className='image' src={require('../../static/images/bag.jpg')} alt='bag' width={'100%'} height={'100%'}/>
         </div>
 
         <div className='item-summary-data'>

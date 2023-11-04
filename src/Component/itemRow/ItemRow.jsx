@@ -14,8 +14,8 @@ function ItemRow({ price = 54.99, qty = 1 }) {
                 </div>
 
                 <div className='item-row-functions'>
-                    <a style={{ color: '#1B4B66' }}>Add to wishlist</a>
-                    <a style={{ color: '#B00020' }}>Remove</a>
+                    <a style={{ color: '#1B4B66' }} href='https'>Add to wishlist</a>
+                    <a style={{ color: '#B00020' }} href='https'>Remove</a>
                 </div>
             </div>
         </div>
