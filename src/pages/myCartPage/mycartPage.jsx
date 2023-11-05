@@ -1,6 +1,6 @@
 import React from 'react'
-import ItemTable from '../itemTable/ItemTable'
-import Summary from '../summary/Summary'
+import ItemTable from '../../Component/itemTable/ItemTable'
+import Summary from '../../Component/summary/Summary'
 import './myCartPage.css'
 
 function MycartPage() {

@@ -1,15 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import ItemSummary from './itemSummary/itemSummary';
-import ItemRow from './itemRow/ItemRow';
-import ItemTable from './itemTable/ItemTable';
-import MycartPage from './myCartPage/mycartPage';
+import CheckOutPage from './pages/checkOutPage/checkOutPage';
 
 
 function App() {
   return (
     <div className="App">
-      <MycartPage/>
+      <CheckOutPage/>
     </div>
   );
 }
