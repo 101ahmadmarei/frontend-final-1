@@ -1,0 +1,12 @@
+.order-summary-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-summary-data{
+    font-weight: 600 ;    
+}
+
+.order-summary-row > p {
+    margin: 0;
+}

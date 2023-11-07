@@ -1,0 +1,35 @@
+.item-row-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0 0;
+}
+
+.item-row{
+    width: 50%;
+}
+
+.item-row-data{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 25px;
+    
+}
+
+.item-row-data > p {
+    padding: 0;
+    margin: 0;
+}
+
+.item-row-functions{
+    display: flex;
+    justify-content: space-around;
+}
+
+.item-row-functions > a {
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+
+
