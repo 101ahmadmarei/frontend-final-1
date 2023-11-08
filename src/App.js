@@ -14,6 +14,7 @@ import PersonalPage from './pages/PersonalPage/PersonalPage';
 import Bran from './Component/Brand/Bran';
 import Header from './Component/Header/Header';
 import NewArr from './Component/NewArrivals/NewArr';
+import MyOrdersPage from './pages/myOrdersPage/MyOrdersPage';
 
 
 
@@ -25,7 +26,8 @@ function App() {
       </div> */}
       {/* <PageHeader title={'Personal Information'}/> */}
       {/* <ProfileListItem/> */}
-      <PersonalPage/>
+      {/* <PersonalPage/> */}
+      <MyOrdersPage/>
     </ThemeProvider>
 
   );
