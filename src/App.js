@@ -17,6 +17,7 @@ import NewArr from './Component/NewArrivals/NewArr';
 import MyOrdersPage from './pages/myOrdersPage/MyOrdersPage';
 import Order from './Component/Order/Order';
 import OrderPage from './pages/OrderPage/OrderPage';
+import LoginPage from './pages/loginPage/LoginPage';
 
 
 
@@ -30,7 +31,8 @@ function App() {
       {/* <ProfileListItem/> */}
       {/* <PersonalPage/> */}
       {/* <MyOrdersPage/> */}
-      <OrderPage/>
+      {/* <OrderPage/> */}
+      <LoginPage/>
     </ThemeProvider>
 
   );
