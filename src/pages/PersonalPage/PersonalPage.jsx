@@ -14,7 +14,7 @@ gap: 10px
 function PersonalPage() {
     return (
         <div>
-            <PageHeader title={'Personal Information'} />
+            <PageHeader title={'Personal Information'} logoutBtn={true}/>
             <FlexStyle>
                 <ProfileList />
                 <div style={{width:'100%'}}>

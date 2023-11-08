@@ -10,7 +10,7 @@ const style = {
     padding: '5px',
 }
 
-function TxtInput({ label, type, width = '100%', isPassword = false }) {
+function TxtInput({ label, placeholder , type, width = '100%', isPassword = false }) {
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -23,7 +23,7 @@ function TxtInput({ label, type, width = '100%', isPassword = false }) {
             </div>
             <InputBase 
             id={label} 
-            placeholder={label} 
+            placeholder={placeholder} 
             style={style} 
             type={showPassword ? 'text' : type}
                 endAdornment={
