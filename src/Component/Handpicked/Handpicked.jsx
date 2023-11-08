@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, CardMedia, Button } from '@mui/material';
+import { Card, CardContent, CardMedia, Button } from '@mui/maqterial';
 
 
 const Handpicked = () => {
