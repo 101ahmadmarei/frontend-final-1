@@ -15,6 +15,8 @@ import Bran from './Component/Brand/Bran';
 import Header from './Component/Header/Header';
 import NewArr from './Component/NewArrivals/NewArr';
 import MyOrdersPage from './pages/myOrdersPage/MyOrdersPage';
+import Order from './Component/Order/Order';
+import OrderPage from './pages/OrderPage/OrderPage';
 
 
 
@@ -27,7 +29,8 @@ function App() {
       {/* <PageHeader title={'Personal Information'}/> */}
       {/* <ProfileListItem/> */}
       {/* <PersonalPage/> */}
-      <MyOrdersPage/>
+      {/* <MyOrdersPage/> */}
+      <OrderPage/>
     </ThemeProvider>
 
   );

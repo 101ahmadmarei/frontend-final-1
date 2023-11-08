@@ -36,12 +36,12 @@ function PersonalInfo() {
                 </FlexStyle>
 
                 <FlexStyle>
-                    <TxtInput label={'First Name'} type={'text'} />
-                    <TxtInput label={'Last Name'} type={'text'} />
+                    <TxtInput label={'First Name'} type={'text'} placeholder={'Your Name'}/>
+                    <TxtInput label={'Last Name'} type={'text'} placeholder={'Your Name'} />
                 </FlexStyle>
 
-                <TxtInput label={'Email'} type={'email'} />
-                <TxtInput label={'Mobile Number'} type={'number'} width='70%'/>
+                <TxtInput label={'Email'} type={'email'} placeholder={'a@g.com'}/>
+                <TxtInput label={'Mobile Number'} type={'number'} width='70%' placeholder={'0599999999'}/>
             </PersonalInfoContent>
         </PersonalInfoContainer>
     )

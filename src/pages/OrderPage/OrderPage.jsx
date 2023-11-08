@@ -1,28 +1,27 @@
 import React from 'react'
 import PageHeader from '../../Component/pageHeader/PageHeader'
-import styled from 'styled-components';
+import Order from '../../Component/Order/Order';
 import ProfileList from '../../Component/ProfileList/ProfileList';
-import MyOrders from '../../Component/MyOrders/MyOrders';
+import styled from 'styled-components';
 
 const FlexStyle = styled.div`
 display: flex;
 gap: 10px
 `;
 
-function MyOrdersPage() {
+function OrderPage() {
     return (
         <div>
-            <PageHeader title={'My Orders'} searchFeild={true} />
+            <PageHeader title={'Order#874522648'} />
 
             <FlexStyle>
                 <ProfileList />
-                <div style={{width:'100%'}}>
-                    <MyOrders/>
+                <div style={{ width: '100%' }}>
+                    <Order/>
                 </div>
             </FlexStyle>
-
         </div>
     )
 }
 
-export default MyOrdersPage
+export default OrderPage
