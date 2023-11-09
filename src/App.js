@@ -12,8 +12,7 @@ import ProfileListItem from './Component/ProfileListItem/ProfileListItem';
 import PersonalPage from './pages/PersonalPage/PersonalPage';
 
 
-import Bran from './Component/Brand/Bran';
-import Header from './Component/Header/Header';
+import Bran from './Component/Brand/Brand';
 import NewArr from './Component/NewArrivals/NewArr';
 
 
@@ -22,22 +21,11 @@ import NewArr from './Component/NewArrivals/NewArr';
 import Productlist from './Component/Productlist/Productlist';
 function App() {
   return (
-    <div className="App">
-      <Productlist />
-
-
-
-
-
     <ThemeProvider theme={theme}>
       <div className="App">
-        <Button variant='contained'>Test</Button>
-        {/* <CheckOutPage /> */}
+        <Productlist />
       </div>
     </ThemeProvider>
-
-
-    </div>
   );
 }
 
