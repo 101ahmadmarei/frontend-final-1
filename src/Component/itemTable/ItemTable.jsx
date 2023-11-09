@@ -2,7 +2,7 @@ import React from 'react'
 import './ItemTable.css'
 import ItemRow from '../itemRow/ItemRow'
 
-function ItemTable() {
+function ItemTable({showFunctions}) {
     return (
         <div className='Table-container'>
             <div className='Table-header'>
@@ -14,8 +14,8 @@ function ItemTable() {
                 </div>
             </div>
 
-            <ItemRow/>
-            <ItemRow/>
+            <ItemRow showFunctions={showFunctions}/>
+            <ItemRow showFunctions={showFunctions}/>
         </div>
     )
 }
