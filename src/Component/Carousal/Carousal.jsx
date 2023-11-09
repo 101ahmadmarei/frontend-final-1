@@ -9,8 +9,7 @@ function Carousa() {
 
 
         <div className='hero'>
-
-
+            carousel
 
 
         </div>

@@ -19,12 +19,14 @@ import NewArr from './Component/NewArrivals/NewArr';
 
 
 import Productlist from './Component/Productlist/Productlist';
+import CssBaseline from '@mui/material/CssBaseline/CssBaseline';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router/router';
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
-        <Productlist />
-      </div>
+      <CssBaseline/>
+      <RouterProvider router={router}/>
     </ThemeProvider>
   );
 }
