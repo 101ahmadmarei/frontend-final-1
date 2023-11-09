@@ -2,6 +2,7 @@
 
 
 import { Button, ThemeProvider } from '@mui/material';
+import Header from './Component/Header/Header';
 
 
 import { theme } from './theme/theme';
@@ -17,6 +18,7 @@ function App() {
         {<>
 
 
+          <Header />
         </>
         }
       </div>

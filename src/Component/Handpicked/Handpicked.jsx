@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, CardMedia, Button } from '@mui/maqterial';
+import { Card, CardContent, CardMedia, Button } from '@mui/material';
 
 
 const Handpicked = () => {
@@ -35,7 +35,7 @@ const Handpicked = () => {
                 <Card sx={{ maxWidth: 280, height: 280, marginLeft: 10, borderRadius: 10, borderColor: 'gray' }}>
                     <CardMedia
                         sx={{ height: 280, width: 280 }}
-                        image='./assets/watch.jpeg'
+                        image={require('./assets/watch.jpeg')}
                         title="bag"
                     />
 
@@ -61,7 +61,7 @@ const Handpicked = () => {
                 <Card sx={{ maxWidth: 280, height: 280, marginLeft: 10, borderRadius: 10, borderColor: 'gray' }}>
                     <CardMedia
                         sx={{ height: 280, width: 280 }}
-                        image="https://images.app.goo.gl/tJddLVcU1dp6oUHp6"
+                        image={require('./assets/watch.jpeg')}
                         title="bag"
                     />
 
@@ -84,7 +84,7 @@ const Handpicked = () => {
                 <Card sx={{ maxWidth: 280, height: 280, marginLeft: 10, borderRadius: 10, borderColor: 'gray' }}>
                     <CardMedia
                         sx={{ height: 280, width: 280 }}
-                        image="https://images.app.goo.gl/tJddLVcU1dp6oUHp6"
+                        image={require('./assets/watch.jpeg')}
                         title="bag"
                     />
 
@@ -108,7 +108,7 @@ const Handpicked = () => {
                 <Card sx={{ maxWidth: 280, height: 280, marginLeft: 10, borderRadius: 10, borderColor: 'gray' }}>
                     <CardMedia
                         sx={{ height: 280, width: 280 }}
-                        image="https://images.app.goo.gl/tJddLVcU1dp6oUHp6"
+                        image={require('./assets/watch.jpeg')}
                         title="bag"
                     />
 
