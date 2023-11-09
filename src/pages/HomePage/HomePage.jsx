@@ -9,7 +9,7 @@ import Makeup from '../../Component/Makeup/Makeup';
 
 
 
-function MycartPage() {
+function HomePage() {
     return (
         <div className='Home-page'>
             <Header />
@@ -27,4 +27,4 @@ function MycartPage() {
 
 }
 
-export default MycartPage
+export default HomePage;
