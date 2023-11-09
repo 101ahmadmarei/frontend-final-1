@@ -4,11 +4,11 @@ import { IconButton } from '@mui/material';
 
 
 export default function IconBtn({ icon }) {
-    return (
+  return (
 
-        <IconButton >
-            {icon}
-        </IconButton>
+    <IconButton >
+      {icon}
+    </IconButton>
 
-    );
+  );
 }

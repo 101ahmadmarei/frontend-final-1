@@ -1,0 +1,32 @@
+import { Button } from '@mui/material'
+import React from 'react'
+import PropTypes from 'prop-types'
+
+function CoralBtnIcon(props) {
+    return (
+        <Button 
+        variant={props.type} 
+        startIcon={props.icon} 
+        sx={{ margin: 0, 
+            paddingY: 0, 
+            paddingX: 3, 
+            borderRadius: 1, 
+            maxHeight: 30, 
+            minWidth: 120,
+         }}
+         color={props.color}>{props.label}</Button>
+    )
+}
+
+CoralBtnIcon.defaultProps = {
+    color: 'primary'
+}
+
+CoralBtnIcon.propTypes = {
+    label: PropTypes.string,
+    type: PropTypes.string,
+    icon: PropTypes.element,
+    color:PropTypes.string
+}
+
+export default CoralBtnIcon
