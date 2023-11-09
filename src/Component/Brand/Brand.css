@@ -1,0 +1,54 @@
+.BrandsLayout {
+    display: flex;
+    width: auto;
+    height: 236px;
+    align-items: center;
+    justify-content: space-between;
+    top: 1586px;
+    left: 21px;
+
+}
+
+.LogosLayout {
+    display: flex;
+    width: auto;
+    height: 68px;
+    left: 21px;
+
+}
+
+.logo {
+    display: flex;
+    width: 258;
+    height: 44px;
+
+}
+
+.LogosLayout.h1 {
+
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 44px;
+
+
+}
+
+.Brandsgrid {
+
+    display: flex;
+    width: auto;
+    height: 168;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logos {
+    width: 168px;
+    height: 168px;
+    margin-bottom: 20px;
+}
+
+.logos.biba {
+    background-image: url('../assets/biba.png');
+}

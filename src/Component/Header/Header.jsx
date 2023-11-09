@@ -26,6 +26,7 @@ function Header() {
                     <p >Apparels</p>
 
                 </div></div>
+
             <div className='container '>
 
                 <div className="search" >

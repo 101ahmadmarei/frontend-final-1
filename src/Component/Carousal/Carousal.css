@@ -1,0 +1,9 @@
+.hero {
+    width: auto;
+    height: 400px;
+    flex-shrink: 0;
+    right: 20px;
+    left: 20px;
+    top: 154px;
+    background-image: url('https://images.unsplash.com/photo-1533827432537-70133748f5c8');
+}
