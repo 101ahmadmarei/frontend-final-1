@@ -1,0 +1,9 @@
+.hero {
+    width: auto;
+    height: 400px;
+    flex-shrink: 0;
+    right: 20px;
+    left: 20px;
+    top: 154px;
+    background-image: url('../assets/5.jpg');
+}
