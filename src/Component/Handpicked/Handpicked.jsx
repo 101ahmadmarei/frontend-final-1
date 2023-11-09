@@ -35,7 +35,7 @@ const Handpicked = () => {
                 <Card sx={{ maxWidth: 280, height: 280, marginLeft: 10, borderRadius: 10, borderColor: 'gray' }}>
                     <CardMedia
                         sx={{ height: 280, width: 280 }}
-                        image={require('./assets/watch.jpeg')}
+                        image='https://images.unsplash.com/photo-1533827432537-70133748f5c8'
                         title="bag"
                     />
 
@@ -61,7 +61,7 @@ const Handpicked = () => {
                 <Card sx={{ maxWidth: 280, height: 280, marginLeft: 10, borderRadius: 10, borderColor: 'gray' }}>
                     <CardMedia
                         sx={{ height: 280, width: 280 }}
-                        image={require('./assets/watch.jpeg')}
+                        image='https://images.unsplash.com/photo-1533827432537-70133748f5c8'
                         title="bag"
                     />
 
@@ -84,7 +84,7 @@ const Handpicked = () => {
                 <Card sx={{ maxWidth: 280, height: 280, marginLeft: 10, borderRadius: 10, borderColor: 'gray' }}>
                     <CardMedia
                         sx={{ height: 280, width: 280 }}
-                        image={require('./assets/watch.jpeg')}
+                        image='https://images.unsplash.com/photo-1533827432537-70133748f5c8'
                         title="bag"
                     />
 
@@ -108,7 +108,7 @@ const Handpicked = () => {
                 <Card sx={{ maxWidth: 280, height: 280, marginLeft: 10, borderRadius: 10, borderColor: 'gray' }}>
                     <CardMedia
                         sx={{ height: 280, width: 280 }}
-                        image={require('./assets/watch.jpeg')}
+                        image='https://images.unsplash.com/photo-1533827432537-70133748f5c8'
                         title="bag"
                     />
 

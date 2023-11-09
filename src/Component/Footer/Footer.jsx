@@ -1,13 +1,15 @@
 import React from 'react';
 import PlaceIcon from '@mui/icons-material/Place';
 
+import './Footer.css';
+import { YoutubeSearchedFor } from '@mui/icons-material';
+
 function Footer() {
-
-
     return (
         <div className='Footerlayout'>
             <div className='Footernav'>
                 <div className='shopByCategory'>
+                    <h3>Shop by Category</h3>
                     <ul>
                         <li><a href="">Skincare</a></li>
                         <li><a href="">Personalcare</a></li>
@@ -17,15 +19,13 @@ function Footer() {
                         <li><a href="">Eyewear</a></li>
                         <li><a href="">Jewellery</a></li>
                     </ul>
-
                 </div>
-
-
-
             </div>
 
             <div className='FooterLogo'>
-                <div className='logo'>
+
+
+                <div className='socialMedia'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="200" height="38" viewBox="0 0 200 38" fill="none">
                         <circle cx="19" cy="19" r="19" fill="#639599" />
                         <path d="M12.5088 20.7084H15.3489V32.4004C15.3489 32.6312 15.5359 32.8183 15.7668 32.8183H20.5822C20.813 32.8183 21.0001 32.6312 21.0001 32.4004V20.7634H24.265C24.4772 20.7634 24.6558 20.6041 24.6801 20.3933L25.176 16.0889C25.1896 15.9704 25.152 15.8518 25.0728 15.763C24.9935 15.6741 24.88 15.6232 24.7609 15.6232H21.0002V12.9249C21.0002 12.1116 21.4382 11.6991 22.302 11.6991C22.4252 11.6991 24.7609 11.6991 24.7609 11.6991C24.9917 11.6991 25.1788 11.512 25.1788 11.2812V7.33016C25.1788 7.09932 24.9917 6.91227 24.7609 6.91227H21.3722C21.3483 6.9111 21.2953 6.90918 21.217 6.90918C20.6291 6.90918 18.5853 7.0246 16.971 8.50978C15.1822 10.1556 15.4309 12.1262 15.4903 12.4678V15.6231H12.5088C12.278 15.6231 12.0909 15.8101 12.0909 16.041V20.2904C12.0909 20.5212 12.278 20.7084 12.5088 20.7084Z" fill="#1B4B66" />
@@ -36,27 +36,25 @@ function Footer() {
                         <circle cx="181" cy="19" r="19" fill="#639599" />
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M191.992 11.6857C192.375 12.0686 192.652 12.5453 192.793 13.0681C193.608 16.347 193.42 21.5257 192.809 24.9312C192.667 25.454 192.391 25.9306 192.008 26.3136C191.625 26.6966 191.148 26.9726 190.625 27.114C188.71 27.636 181.003 27.636 181.003 27.636C181.003 27.636 173.296 27.636 171.382 27.114C170.859 26.9726 170.382 26.6966 169.999 26.3136C169.615 25.9306 169.339 25.454 169.198 24.9312C168.378 21.6665 168.603 16.4847 169.182 13.0839C169.323 12.5611 169.6 12.0845 169.983 11.7015C170.366 11.3185 170.843 11.0425 171.366 10.9011C173.281 10.3791 180.988 10.3633 180.988 10.3633C180.988 10.3633 188.694 10.3633 190.609 10.8853C191.132 11.0267 191.609 11.3027 191.992 11.6857ZM184.701 18.9996L178.532 22.7009V15.2983L184.701 18.9996Z" fill="#1B4B66" />
                     </svg>
-
-
                 </div>
 
                 <div className='location'>
+                    <div className='placeicon'>
+                        <PlaceIcon />
+                    </div>
                     <div className='unitedstate'>
 
-                        UnitedState</div>
-                    <div className='placeicon'><PlaceIcon /></div>
+                        United States
+                    </div>
 
                 </div>
 
-                <div className='rightreserved'>© 2021 | Cora Leviene All Rights Reserved</div>
+                <div className='rightreserved'>
+                    © 2021 | Cora Leviene All Rights Reserved
+                </div>
             </div>
 
-
-
-
-
         </div >
-
 
     );
 }
