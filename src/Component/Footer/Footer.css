@@ -44,8 +44,7 @@ a {
     padding: 20px;
     background-color: #1B4B66;
     color: #ffffff;
-    display: table;
-
+    display: block;
     justify-content: space-between;
     align-items: center;
 }
@@ -53,7 +52,7 @@ a {
 
 
 .socialMedia {
-    display: block;
+    display: flex;
     float: right;
 }
 
