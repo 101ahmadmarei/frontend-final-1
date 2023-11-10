@@ -2,7 +2,8 @@
 
 
 import Footer from './Component/Footer/Footer';
-import NavigationPage from './pages/NavigationPage';
+import Header from './Component/Header/Header';
+import Productlist from './Component/Productlist/Productlist';
 
 
 import './App.css';
@@ -14,7 +15,7 @@ function App() {
   return (
     <div >
 
-      <NavigationPage />
+      <Productlist />
 
 
     </div>
