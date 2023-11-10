@@ -18,8 +18,16 @@ import NewArr from './Component/NewArrivals/NewArr';
 
 
 
+
+import Productlist from './Component/Productlist/Productlist';
 function App() {
   return (
+    <div className="App">
+      <Productlist />
+
+
+
+
 
     <ThemeProvider theme={theme}>
       <div className="App">
@@ -28,6 +36,8 @@ function App() {
       </div>
     </ThemeProvider>
 
+
+    </div>
   );
 }
 
