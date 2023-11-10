@@ -35,7 +35,8 @@ const Bran = () => {
                 <Card sx={{ maxWidth: 280, height: 280, marginLeft: 10, borderRadius: 10, borderColor: 'gray' }}>
                     <CardMedia
                         sx={{ height: 280, width: 280 }}
-                        image='./assets/watch.jpeg'
+                        image="https://images.app.goo.gl/tJddLVcU1dp6oUHp6"
+
                         title="bag"
                     />
 

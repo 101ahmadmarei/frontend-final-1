@@ -9,6 +9,7 @@
     justify-content: space-between;
     background-color: #1B4B66;
 
+
 }
 
 a {
@@ -39,26 +40,28 @@ a {
 }
 
 .FooterLogo {
-    float: right;
     width: 70%;
-    padding: 20px;
     background-color: #1B4B66;
     color: #ffffff;
-    display: block;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    align-content: center;
+    justify-items: end;
+    padding-right: 20px;
 }
+
 
 
 
 .socialMedia {
     display: flex;
     float: right;
+    padding: 20px;
 }
 
 .location {
     display: flex;
-    align-items: center;
+
+
 }
 
 .rightreserved {

@@ -93,7 +93,8 @@ const NewArr = () => {
                 < Card sx={{ maxWidth: 286, height: 412, marginLeft: 10, borderRadius: 5, borderColor: 'gray' }}>
                     <CardMedia
                         sx={{ height: 286, width: 286 }}
-                        image="NewArrivals\redbag.jpg"
+                        image="https://images.app.goo.gl/tJddLVcU1dp6oUHp6"
+
                         title="bag"
                     />
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
