@@ -57,6 +57,7 @@ export default function CustomSeparator() {
                         <ViewListSharpIcon />
                     </div>
                     <div style={{}}>Showing 1 - 40 of 145 items</div>
+
                 </div>
 
                 <div className="ProductList">
