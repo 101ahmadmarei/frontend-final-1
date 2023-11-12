@@ -2,12 +2,14 @@
     display: flex;
     width: auto;
     height: 236px;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     top: 1586px;
-    left: 21px;
-
+    gap: 30px;
+    flex-direction: column;
 }
+
+
 
 .LogosLayout {
     display: flex;

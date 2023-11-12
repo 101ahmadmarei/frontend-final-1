@@ -45,8 +45,10 @@ a {
     background-color: #1B4B66;
     color: #ffffff;
     display: block;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
 }
 
 

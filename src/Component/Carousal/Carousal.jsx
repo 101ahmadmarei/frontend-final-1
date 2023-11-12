@@ -1,14 +1,14 @@
 import React from 'react';
 
 
-function Carousa() {
+function Carousal() {
 
 
     return (
 
+        <div>
 
 
-        <div className='hero'>
 
 
 
@@ -22,4 +22,4 @@ function Carousa() {
     )
 
 }
-export default Carousa;
+export default Carousal;

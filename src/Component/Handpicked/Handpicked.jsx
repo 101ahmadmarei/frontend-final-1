@@ -4,11 +4,7 @@ import { Card, CardContent, CardMedia, Button } from '@mui/material';
 
 const Handpicked = () => {
     return (
-        <div style={{
-            marginTop: 40,
-            marginButton: 40,
-
-        }}>
+        <div  >
             <div style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -29,7 +25,10 @@ const Handpicked = () => {
             <div className="Card-Container" style={{
                 display: 'flex',
                 overflowX: 'auto',
-                backgroundColor: '#1B4B66'
+                backgroundColor: '#1B4B66',
+                paddingBottom: 20,
+                paddingTop: 20
+
             }}>
 
                 <Card sx={{ maxWidth: 280, height: 280, marginLeft: 10, borderRadius: 10, borderColor: 'gray' }}>
@@ -47,8 +46,8 @@ const Handpicked = () => {
                             position: 'absolute',
                             width: 163,
                             height: 32,
-                            left: 200,
-                            top: 830
+                            left: 180,
+                            top: 950
                         }}>
                             Personal Care
                         </div>
@@ -73,7 +72,7 @@ const Handpicked = () => {
                             width: 163,
                             height: 32,
                             left: 450,
-                            top: 830,
+                            top: 950,
 
                         }}>Hand Bags</div>
 
@@ -96,7 +95,7 @@ const Handpicked = () => {
                             width: 163,
                             height: 32,
                             left: 820,
-                            top: 830,
+                            top: 950,
 
 
                         }}>Wrist Watches</div>
@@ -120,7 +119,7 @@ const Handpicked = () => {
                             width: 163,
                             height: 32,
                             left: 1200,
-                            top: 830,
+                            top: 950,
 
 
                         }}>Sun glasses</div>
