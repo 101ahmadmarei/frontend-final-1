@@ -1,0 +1,189 @@
+.productlisting {}
+
+.Page-title {
+    display: block;
+}
+
+.Page-title.h1 {
+    font-Size: 34;
+    color: #13101E;
+    font-Weight: 600;
+    float: left;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    height: 80px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 10px;
+}
+
+.showicon {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    float: left;
+    gap: 10px;
+}
+
+.gridicon {
+    width: 24px;
+    height: 24px;
+}
+
+.showing {
+    color: #171520;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+
+}
+
+.toshow {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+
+.textfield {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.sortby {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.ProductList {
+    gap: 30px;
+
+
+
+}
+
+.five {
+
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+
+}
+
+.container {
+    display: flex;
+    /* padding: 2px; */
+    justify-content: space-between;
+    align-content: space-around;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 10px 2px 10px 2px;
+
+
+}
+
+
+
+.container.heart {
+    float: right;
+    width: 20;
+    height: 76;
+}
+
+.price {
+    display: flex;
+    justify-content: space-around;
+    gap: 5px;
+
+}
+
+.oldprice {
+
+    color: var(--type-low-emphasis, #626262);
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+    text-decoration: line-through;
+}
+
+.newprice {
+    color: #171520;
+
+    /* Paragraph/M-16px */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    /* 125% */
+}
+
+.discount {
+    color: #E21D1D;
+
+    /* Paragraph/R-16px */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 125% */
+}
+
+.numOfRate {
+
+    color: #1B4B66;
+
+    /* Heading/M-14px */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+
+
+    /* 128.571% */
+}
+
+.rating {
+    display: flex;
+    align-items: flex-end;
+
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+
+
+
+
+.star {
+    padding-bottom: 20px;
+
+
+}
+
+.pagination {
+
+    width: 400px;
+    height: 100px;
+}
