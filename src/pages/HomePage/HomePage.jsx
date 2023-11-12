@@ -11,16 +11,13 @@ import Makeup from '../../Component/Makeup/Makeup';
 
 function HomePage() {
     return (
-        <div className='Home-page'>
-            <Header />
+        <>
             <Carousal />
             <NewArr />
             <Handpicked />
             <Brand />
             <Makeup />
-            <Footer />
-
-        </div>
+        </>
 
     )
 
