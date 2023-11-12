@@ -152,6 +152,7 @@ export default function CustomSeparator() {
                         </div>
 
                     </div>
+ 
 
                 </div></div>
 
@@ -322,6 +323,9 @@ export default function CustomSeparator() {
 
 
 
+=======
+                    <div style={{}}>Showing 1 - 40 of 145 items</div>
+ 
 
                 </div>
 
