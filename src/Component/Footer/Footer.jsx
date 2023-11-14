@@ -33,7 +33,7 @@ padding: 30px 0
 `;
 
 const FlexContainer = styled.div`
-display:block;
+display:flex;
 gap: 30px;
 
 @media screen and (max-width: 660px){

@@ -6,7 +6,8 @@ function CoralBtnIcon(props) {
     return (
         <Button 
         variant={props.type} 
-        startIcon={props.icon} 
+        startIcon={props.icon}
+        endIcon={props.endIcon} 
         sx={{ margin: 0, 
             paddingY: 0, 
             paddingX: 3, 
@@ -26,7 +27,8 @@ CoralBtnIcon.propTypes = {
     label: PropTypes.string,
     type: PropTypes.string,
     icon: PropTypes.element,
-    color:PropTypes.string
+    color:PropTypes.string,
+    endIcon:PropTypes.element,
 }
 
 export default CoralBtnIcon

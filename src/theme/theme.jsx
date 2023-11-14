@@ -21,6 +21,9 @@ export const theme = createTheme({
         textGray: {
             main: '#B6B6B6'
         },
+        lowEmphasis:{
+            main:'#626262'
+        },
         info: {
             main: '#FF8CAB',
             contrastText: '#B6B6B6'
