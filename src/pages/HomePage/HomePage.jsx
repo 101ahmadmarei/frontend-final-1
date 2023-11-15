@@ -10,9 +10,9 @@ import Makeup from '../../Component/Makeup/Makeup';
 function HomePage() {
     return (
         <>
-            <Carousal />
+            
             <NewArrivals />
-            {/* <Handpicked /> */}
+            <Handpicked />
             {/* <Brand /> */}
             {/* <Makeup /> */}
         </>
