@@ -2,33 +2,39 @@
     display: flex;
     width: auto;
     height: 236px;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    top: 1586px;
-    left: 21px;
+    flex-direction: column;
+    padding: 68px 22px;
+
 
 }
 
 .LogosLayout {
     display: flex;
-    width: auto;
-    height: 68px;
-    left: 21px;
 
+    padding-bottom: 24px;
 }
+
+
 
 .logo {
     display: flex;
-    width: 258;
-    height: 44px;
+
 
 }
 
 .LogosLayout.h1 {
 
-    font-weight: 600;
+    color: #13101E;
+
+    /* Heading/S-34px */
+    font-family: Inter;
     font-size: 34px;
+    font-style: normal;
+    font-weight: 600;
     line-height: 44px;
+    /* 129.412% */
 
 
 }
@@ -37,18 +43,30 @@
 
     display: flex;
     width: auto;
-    height: 168;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
+    height: 168px;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    gap: 56px;
 }
 
 .logos {
     width: 168px;
     height: 168px;
-    margin-bottom: 20px;
+    border-radius: 16px;
+    background-color: #F4F4F4;
 }
 
-.logos.biba {
-    background-image: url('../assets/biba.png');
+.biba {
+    width: 115px;
+    height: 40px;
+    flex-shrink: 0;
+    padding: 68px 26px 60px 27px;
+    background: url('../assets/bibalogo.png');
+    background-repeat: no-repeat;
+
+
+
+
+
+
 }

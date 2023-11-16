@@ -1,138 +1,93 @@
 import React from 'react';
-import { Card, CardContent, CardMedia, Button } from '@mui/material';
+import styled from 'styled-components';
 
+const HandpickedContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #1B4B66;
+`;
+
+const HandpickedTitle = styled.h1`
+    color: #FFF;
+    font-family: Inter;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 44px;
+    margin-bottom: 32px;
+    padding-top: 32px;
+    padding-left: 20px;
+`;
+
+const HandSection = styled.div`
+    display: flex;
+    background: #1B4B66;
+    justify-content: center;
+`;
+
+const CategoriesSection = styled.div`
+    display: flex;
+    align-items: flex-start;
+    gap: 46px;
+    padding: 25px;
+`;
+
+const ImageContainer = styled.div`
+    width: 318px;
+    height: 318px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #C4C4C4;
+`;
+
+const ImageTitle = styled.div`
+    color: #171520;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+    padding: 270px 101px 16px 16px;
+`;
+
+const PersonalImage = styled(ImageContainer)`
+    background: url("../assets/personalcare.png") lightgray 10% / cover no-repeat;
+`;
+
+const HandpickedImage = styled(ImageContainer)`
+    background: url("../assets/Handbags.png") lightgray 10% / cover no-repeat;
+`;
+
+const WatchImage = styled(ImageContainer)`
+    background: url("../assets/wristwatches.png") lightgray 10% / cover no-repeat;
+`;
+
+const GlassImage = styled(ImageContainer)`
+    background: url("../assets/sunglassess.png") lightgray 10% / cover no-repeat;
+`;
 
 const Handpicked = () => {
     return (
-        <div style={{
-            marginTop: 40,
-            marginButton: 40,
-
-        }}>
-            <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                backgroundColor: '#1B4B66',
-
-
-            }}>
-                <div>
-                    <div style={{
-                        fontSize: 34,
-                        color: '#FFFFFF',
-                        fontWeight: 600,
-                    }}>Handpicked collections</div>
-                </div>
-
-            </div>
-            <div className="Card-Container" style={{
-                display: 'flex',
-                overflowX: 'auto',
-                backgroundColor: '#1B4B66'
-            }}>
-
-                <Card sx={{ maxWidth: 280, height: 280, marginLeft: 10, borderRadius: 10, borderColor: 'gray' }}>
-                    <CardMedia
-                        sx={{ height: 280, width: 280 }}
-                        image='https://images.unsplash.com/photo-1533827432537-70133748f5c8'
-                        title="bag"
-                    />
-
-                    <CardContent sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <div style={{
-                            color: '#171520', fontWeight: 600, fontSize: 24,
-                            color: '#171520', fontWeight: 600, fontSize: 24,
-                            textAlign: 'center',
-                            position: 'absolute',
-                            width: 163,
-                            height: 32,
-                            left: 200,
-                            top: 830
-                        }}>
-                            Personal Care
-                        </div>
-                    </CardContent>
-
-
-
-
-                </Card>
-                <Card sx={{ maxWidth: 280, height: 280, marginLeft: 10, borderRadius: 10, borderColor: 'gray' }}>
-                    <CardMedia
-                        sx={{ height: 280, width: 280 }}
-                        image='https://images.unsplash.com/photo-1533827432537-70133748f5c8'
-                        title="bag"
-                    />
-
-                    <CardContent sx={{ maxWidth: 262, height: 76 }}>
-                        <div style={{
-                            color: '#171520', fontWeight: 600, fontSize: 24,
-                            textAlign: 'center',
-                            position: 'absolute',
-                            width: 163,
-                            height: 32,
-                            left: 450,
-                            top: 830,
-
-                        }}>Hand Bags</div>
-
-                    </CardContent>
-
-
-                </Card>
-                <Card sx={{ maxWidth: 280, height: 280, marginLeft: 10, borderRadius: 10, borderColor: 'gray' }}>
-                    <CardMedia
-                        sx={{ height: 280, width: 280 }}
-                        image='https://images.unsplash.com/photo-1533827432537-70133748f5c8'
-                        title="bag"
-                    />
-
-                    <CardContent sx={{ maxWidth: 262, height: 76 }}>
-                        <div style={{
-                            color: '#171520', fontWeight: 600, fontSize: 24, textAlign: 'center',
-
-                            position: 'absolute',
-                            width: 163,
-                            height: 32,
-                            left: 820,
-                            top: 830,
-
-
-                        }}>Wrist Watches</div>
-
-                    </CardContent>
-
-
-                </Card>
-                <Card sx={{ maxWidth: 280, height: 280, marginLeft: 10, borderRadius: 10, borderColor: 'gray' }}>
-                    <CardMedia
-                        sx={{ height: 280, width: 280 }}
-                        image='https://images.unsplash.com/photo-1533827432537-70133748f5c8'
-                        title="bag"
-                    />
-
-                    <CardContent sx={{ maxWidth: 262, height: 76 }}>
-                        <div style={{
-                            color: '#171520', fontWeight: 600, fontSize: 24, textAlign: 'center',
-
-                            position: 'absolute',
-                            width: 163,
-                            height: 32,
-                            left: 1200,
-                            top: 830,
-
-
-                        }}>Sun glasses</div>
-
-                    </CardContent>
-
-
-                </Card>
-
-            </div>
-        </div >
+        <HandpickedContainer>
+            <HandpickedTitle>Handpicked Collections</HandpickedTitle>
+            <HandSection>
+                <CategoriesSection>
+                    <PersonalImage>
+                        <ImageTitle>Personal Care</ImageTitle>
+                    </PersonalImage>
+                    <HandpickedImage>
+                        <ImageTitle>Handbags</ImageTitle>
+                    </HandpickedImage>
+                    <WatchImage>
+                        <ImageTitle>Wrist Watches</ImageTitle>
+                    </WatchImage>
+                    <GlassImage>
+                        <ImageTitle>Sun Glasses</ImageTitle>
+                    </GlassImage>
+                </CategoriesSection>
+            </HandSection>
+        </HandpickedContainer>
     );
 };
 
 export default Handpicked;
+

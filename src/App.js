@@ -1,16 +1,30 @@
-import ItemDetails from "./Component/ItemDetails/ItemDetails";
+
+
+
+import './App.css';
+
+
+
+
+import Brand from './Component/Brand/Brand';
+import Handpicked from './Component/Handpicked/Handpicked';
+
+import ShowImage from './Component/ShowImage/ShowImage';
+
+
 function App() {
   return (
-    <div className="App">
-      <ItemDetails />
+
+    <>
+
+      < ShowImage />
 
 
 
 
+    </>
 
 
-
-    </div>
   );
 }
 
