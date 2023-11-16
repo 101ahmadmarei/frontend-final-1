@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 
 function CoralBtnIcon(props) {
     return (
-        <Button 
+        <Button
+        onClick={props.onClick} 
         variant={props.type} 
         startIcon={props.icon}
         endIcon={props.endIcon} 
@@ -29,6 +30,7 @@ CoralBtnIcon.propTypes = {
     icon: PropTypes.element,
     color:PropTypes.string,
     endIcon:PropTypes.element,
+    onClick:PropTypes.func
 }
 
 export default CoralBtnIcon

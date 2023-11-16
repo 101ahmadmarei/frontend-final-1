@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import CoralCard from '../Card/CoralCard';
+import { useLocation, useSearchParams } from 'react-router-dom';
+import { useArrivals, useProducts } from '../../API/getNewArrivals';
+import PropTypes from 'prop-types'
 
 const ProductListContainer = styled.div`
 display: grid;
@@ -15,21 +18,19 @@ gap: 20px;
 }
 `;
 
-function Productlist() {
+function Productlist(props) {
+
     return (
         <ProductListContainer>
-            <CoralCard isRating={true}/>
-            <CoralCard isRating={true}/>
-            <CoralCard isRating={true}/>
-            <CoralCard isRating={true}/>
-            <CoralCard isRating={true}/>
-            <CoralCard isRating={true}/>
-            <CoralCard isRating={true}/>
-            <CoralCard isRating={true}/>
-            <CoralCard isRating={true}/>
-            <CoralCard isRating={true}/>
+            {props.productsQuery.data.data.products.map((product)=>{
+                return <CoralCard key={Math.random()} product={product} isRating={true}/>
+            })}
         </ProductListContainer>
     )
+}
+
+Productlist.propTypes = {
+    productsQuery: PropTypes.object,
 }
 
 export default Productlist

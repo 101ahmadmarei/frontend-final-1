@@ -5,6 +5,7 @@ import './Footer.css';
 import { YoutubeSearchedFor } from '@mui/icons-material';
 import { Link, Typography } from '@mui/material';
 import styled from 'styled-components';
+import { useCategories } from '../../API/getCategories';
 
 const FooterContainer = styled.div`
 width: 100%;
@@ -46,6 +47,15 @@ margin-top:10px
 `;
 
 function Footer() {
+
+    const categoriesQuery = useCategories(0,7);
+    
+
+    if (categoriesQuery.isLoading) return <div>Loading...</div>
+    if (categoriesQuery.error) {
+      return <div>{categoriesQuery.error.message}</div>
+    }
+
     return (
         <FooterContainer>
 
@@ -54,10 +64,13 @@ function Footer() {
                 <ShopByContainer>
                     <Typography sx={{ fontSize: '16px', fontWeight: 500 }} color={'secondary.main'}>Shop by Category</Typography>
                     <Block>
-                        <Link href="#" underline="hover" color={'textGray.main'} sx={{ fontSize: '16px', fontWeight: 500 }}>
-                            {'Skincare'}
-                        </Link>
-                        <Link href="#" underline="hover" color={'textGray.main'} sx={{ fontSize: '16px', fontWeight: 500 }}>
+                    {categoriesQuery.data.data.categories.map((categoreis) => {
+                       return <Link key={Math.random()} href="#" underline="hover" color={'textGray.main'} sx={{ fontSize: '16px', fontWeight: 500 }}>
+                       {categoreis.name}
+                       </Link>
+                    })}
+                        
+                        {/* <Link href="#" underline="hover" color={'textGray.main'} sx={{ fontSize: '16px', fontWeight: 500 }}>
                             {'Personal care'}
                         </Link>
                         <Link href="#" underline="hover" color={'textGray.main'} sx={{ fontSize: '16px', fontWeight: 500 }}>
@@ -74,7 +87,7 @@ function Footer() {
                         </Link>
                         <Link href="#" underline="hover" color={'textGray.main'} sx={{ fontSize: '16px', fontWeight: 500 }}>
                             {'Jewellery'}
-                        </Link>
+                        </Link> */}
                     </Block>
                 </ShopByContainer>
 
