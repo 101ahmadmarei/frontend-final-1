@@ -8,6 +8,10 @@ import { ReactComponent as Favourties } from '../../static/icons/favourties.svg'
 import { ReactComponent as User } from '../../static/icons/user.svg'
 import { ReactComponent as Cart } from '../../static/icons/cart.svg'
 import styled from 'styled-components';
+import { useCategories } from '../../API/getCategories';
+import { useSearchParams } from 'react-router-dom';
+import SearchPopUp from '../searchPopUp/SearchPopUp';
+import { useSearch } from '../../API/search';
 
 
 const HeaderContainer = styled.div`
@@ -29,6 +33,7 @@ padding-left: 20px;
 
 
 const SearchContainer = styled.div`
+position: relative;
 display:block;
 width:100%;
 
@@ -58,34 +63,57 @@ display:flex;
 `
 
 function Header() {
+
+    
+    const [searchQuery,setSearchQuery] = useSearchParams();
+
+    const categoriesQuery = useCategories(0,5);
+    const search = useSearch(searchQuery.get('searchQuery'))
+
+    
+    const handleSearch = (e) =>{
+        setSearchQuery({searchQuery: e.target.value});
+        if(!e.target.value){
+            searchQuery.delete('searchQuery');
+            setSearchQuery(searchQuery);
+        }
+    }
+
+    if (categoriesQuery.isLoading) return <div>Loading...</div>
+    if (categoriesQuery.error) {
+      return <div>{categoriesQuery.error.message}</div>
+    }
+
+
     return (
         <HeaderContainer>
 
             <LogoCategreisContainer>
                 <Logo />
                 <FlexContainer>
-
-                    <Link href="#" underline="none" color={'secondary.contrastText'} sx={{ fontSize: '16px', fontWeight: 500 }}>
-                        {'Handbag'}
-                    </Link>
-                    <Link href="#" underline="none" color={'secondary.contrastText'} sx={{ fontSize: '16px', fontWeight: 500 }}>
-                        {'Watches'}
-                    </Link>
-                    <Link href="#" underline="none" color={'secondary.contrastText'} sx={{ fontSize: '16px', fontWeight: 500 }}>
-                        {'Skincare'}
-                    </Link>
-                    <Link href="#" underline="none" color={'secondary.contrastText'} sx={{ fontSize: '16px', fontWeight: 500 }}>
-                        {'Jewellery'}
-                    </Link>
-                    <Link href="#" underline="none" color={'secondary.contrastText'} sx={{ fontSize: '16px', fontWeight: 500 }}>
-                        {'Apparels'}
-                    </Link>
+                    {categoriesQuery.data.data.categories.map((categoreis) => {
+                       return <Link 
+                       key={categoreis.id} 
+                       href={`/products?category_id=${categoreis.id}&page=0&size=20&type=${categoreis.name}`} 
+                       underline="none" 
+                       color={'secondary.contrastText'} 
+                       sx={{ fontSize: '16px', fontWeight: 500 }}>
+                            {categoreis.name}
+                            </Link>
+                    })}
                 </FlexContainer>
             </LogoCategreisContainer>
 
             <SerachPopUpContainer>
                 <SearchContainer>
-                    <TxtInput placeholder={'Search for Products or brands.....'} width='100%' isSearch={true} />
+                    <TxtInput 
+                    placeholder={'Search for Products or brands.....'} 
+                    width='100%' 
+                    isSearch={true} 
+                    onChange={handleSearch} 
+                    value={searchQuery.get('searchQuery')? searchQuery.get('searchQuery') : ''}/>
+
+                    {searchQuery.get('searchQuery') && !search.isLoading && <SearchPopUp response={search.data.data.products}/> }
                 </SearchContainer>
                 <BtnContainer>
                     {/* <CoralBtn type={'text'} label={<SvgIcon><Favourties/></SvgIcon>}/> */}
