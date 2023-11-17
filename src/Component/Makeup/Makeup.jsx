@@ -1,55 +1,49 @@
+import { Button } from "@mui/base";
 import * as React from "react";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
+import './Makeup.css';
 
-function srcset(image, size, rows = 1, cols = 1) {
-    return {
-        src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
-        srcSet: `${image}?w=${size * cols}&h=${size * rows
-            }&fit=crop&auto=format&dpr=2 2x`
-    };
-}
 
-export default function QuiltedImageList() {
+
+export default function Makeup() {
     return (
-        <ImageList
-            sx={{ width: "auto", height: 400 }}
-            variant="quilted"
-            cols={4}
-            rowHeight={300}
-        >
-            {itemData.map((item) => (
-                <ImageListItem
-                    key={item.img}
-                    cols={item.cols || 2}
-                    rows={item.rows || 1}
-                >
-                    <img
-                        {...srcset(item.img, 300, item.rows, item.cols)}
-                        alt={item.title}
-                        loading="lazy"
-                    />
-                </ImageListItem>
-            ))}
-        </ImageList>
+        <>
+            <div className="selfcare">
+                <div className="makeup">
+
+                    <div className="makeup-com">
+                        <div className="makeup-lifestyle">LIFESTYLE</div>
+                        <div className="makeup-accessories">Makeup Accessories from Top Brands</div>
+                    </div>
+
+                    <div className="makeup-top"></div>
+                </div>
+                <div className="makeup-bottom">
+                    <div className="makeup-left">
+                        <div className="skincare-essen">Skincare Essentials</div>
+                        <div style={{ borderRadius: 30, borderColor: "#F1F1F1", width: 51, height: 51, paddingLeft: 595, paddingBottom: 26 }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 51 51" fill="none">
+                                <circle cx="25.5" cy="25.5" r="25.5" fill="#F1F1F1" />
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M29.0169 16.2669C29.7829 15.5009 31.0249 15.5009 31.7909 16.2669L40.6178 25.0937C40.9857 25.4616 41.1924 25.9605 41.1924 26.4808C41.1924 27.001 40.9857 27.4999 40.6178 27.8678L31.7909 36.6947C31.0249 37.4607 29.7829 37.4607 29.0169 36.6947C28.2508 35.9287 28.2508 34.6867 29.0169 33.9207L34.4952 28.4423H11.7693C10.6859 28.4423 9.80774 27.5641 9.80774 26.4808C9.80774 25.3974 10.6859 24.5192 11.7693 24.5192H34.4952L29.0169 19.0409C28.2509 18.2749 28.2508 17.0329 29.0169 16.2669Z" fill="#A53F64" />
+                            </svg></div>
+
+                    </div>
+                    <div className="makeup-right">
+                        <div className="Facepacks">Facepacks & Peels</div>
+                        <div style={{ borderRadius: 30, borderColor: "#F1F1F1", width: 51, height: 51, paddingLeft: 595, paddingBottom: 26 }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 51 51" fill="none">
+                                <circle opacity="0.16" cx="25.5" cy="25.5" r="25.5" fill="#1B4B66" />
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M29.0169 16.2669C29.7829 15.5009 31.0249 15.5009 31.7909 16.2669L40.6178 25.0937C40.9857 25.4616 41.1924 25.9605 41.1924 26.4808C41.1924 27.001 40.9857 27.4999 40.6178 27.8678L31.7909 36.6947C31.0249 37.4607 29.7829 37.4607 29.0169 36.6947C28.2508 35.9287 28.2508 34.6867 29.0169 33.9207L34.4952 28.4423H11.7693C10.6859 28.4423 9.80774 27.5641 9.80774 26.4808C9.80774 25.3974 10.6859 24.5192 11.7693 24.5192H34.4952L29.0169 19.0409C28.2509 18.2749 28.2508 17.0329 29.0169 16.2669Z" fill="#1B4B66" />
+                            </svg></div>
+
+                    </div>
+
+
+
+                </div></div>
+
+
+
+        </>
     );
 }
 
-const itemData = [
-    {
-        img: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
-        title: "Hats",
-        cols: 4
-    },
-
-    {
-        img: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
-        title: "Basketball",
-        cols: 2
-    },
-    {
-        img: "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f",
-        title: "Fern",
-        cols: 2
-    }
-];

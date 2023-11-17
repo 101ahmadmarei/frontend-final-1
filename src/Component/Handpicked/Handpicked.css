@@ -1,0 +1,70 @@
+.handpicked-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #1B4B66;
+
+}
+
+.handpicked-title {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 44px;
+    margin-bottom: 32px;
+    padding-top: 32px;
+    padding-left: 20px;
+}
+
+.hand-section {
+    display: flex;
+    background: #1B4B66;
+    justify-content: center;
+}
+
+.categories-sec {
+    display: flex;
+    align-items: flex-start;
+    gap: 46px;
+    padding: 25px;
+}
+
+.img-con {
+    width: 318px;
+    height: 318px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #C4C4C4;
+}
+
+.imgtit {
+    color: #171520;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+    padding: 270px 101px 16px 16px;
+}
+
+.img-con.personalimg {
+    background: url("../assets/personalcare.png")lightgray 10% / cover no-repeat;
+    background-repeat: no-repeat;
+    border-radius: 16px;
+
+}
+
+.img-con.handpickedimg {
+    background: url("../assets/Handbags.png")lightgray 10% / cover no-repeat;
+    background-repeat: no-repeat;
+}
+
+.img-con.watchimg {
+    background: url("../assets/wristwatches.png") lightgray 10% / cover no-repeat;
+    background-repeat: no-repeat;
+}
+
+.img-con.glassimg {
+    background: url("../assets/sunglassess.png") lightgray 10% / cover no-repeat;
+    background-repeat: no-repeat;
+}
