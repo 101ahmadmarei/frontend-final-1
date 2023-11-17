@@ -16,6 +16,21 @@ import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import styled from 'styled-components'
+import CoralCard from '../Card/CoralCard';
+
+const ProductListContainer = styled.div`
+display: grid;
+grid-template-columns: auto;
+gap: 20px;
+@media only screen and (min-width: 690px) {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media only screen and (min-width: 912px) {
+    grid-template-columns: repeat(5, 1fr);
+}
+`;
 
 
 function handleClick(event) {
@@ -202,10 +217,16 @@ export default function ItemDetails() {
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus scelerisque laoreet tortor cras molestie tincidunt malesuada malesuada. Neque, mauris duis dui id morbi magna. Cras lacus, viverra auctor in turpis est quisque eget tristique. Dolor augue mattis duis semper gravida enim eu imperdiet sit. Et pharetra platea pretium nec feugiat tincidunt quam leo tristique. Nulla enim consectetur sit et tempus, faucibus leo ac cras. Purus ut non eu mus volutpat. Eget est vel sagittis amet sit eu eu ullamcorper tellus. Leo mauris, faucibus vulputate adipiscing elementum tristique dictumst augue pellentesque. Justo, sed nunc, pretium turpis scelerisque. Enim urna etiam morbi vestibulum ac dictumst. Ac ut elementum molestie sit felis imperdiet.
                         </CustomTabPanel>
                         <CustomTabPanel value={value} index={1}>
-                            Item Two
+                            <ProductListContainer>
+                                <CoralCard isRating={true} />
+                                <CoralCard isRating={true} />
+                                <CoralCard isRating={true} />
+                                <CoralCard isRating={true} />
+                                <CoralCard isRating={true} />
+                            </ProductListContainer>
                         </CustomTabPanel>
                         <CustomTabPanel value={value} index={2}>
-                            Item Three
+
                         </CustomTabPanel>
                     </Box>
                 </div>
