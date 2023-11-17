@@ -6,7 +6,7 @@ import { IconButton } from '@mui/material';
 export default function IconBtn({ icon }) {
   return (
 
-    <IconButton >
+    <IconButton color={'primary'} >
       {icon}
     </IconButton>
 

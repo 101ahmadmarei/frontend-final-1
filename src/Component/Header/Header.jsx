@@ -1,54 +1,129 @@
 import * as React from 'react';
 import IconBtn from '../IconBtn/IconBtn';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import './Header.css';
+import TxtInput from '../textInput/textInput';
+import { Link, SvgIcon } from '@mui/material';
+import { ReactComponent as Logo } from '../../static/images/logo.svg'
+import { ReactComponent as Favourties } from '../../static/icons/favourties.svg'
+import { ReactComponent as User } from '../../static/icons/user.svg'
+import { ReactComponent as Cart } from '../../static/icons/cart.svg'
+import styled from 'styled-components';
+import { useCategories } from '../../API/getCategories';
+import { useSearchParams } from 'react-router-dom';
+import SearchPopUp from '../searchPopUp/SearchPopUp';
+import { useSearch } from '../../API/search';
 
 
+const HeaderContainer = styled.div`
+display: flex;
+width: 100%;
+align-items: center;
+justify-content: space-between;
+padding: 10px;
+`;
+
+const FlexContainer = styled.div`
+display: flex;
+gap: 10px;
+padding-left: 20px;
+@media screen and (max-width: 660px) {
+    display: none;
+  }
+`;
+
+
+const SearchContainer = styled.div`
+position: relative;
+display:block;
+width:100%;
+
+@media screen and (max-width:1000px){
+    display:none;
+}
+`;
+
+const LogoCategreisContainer = styled.div`
+display: flex;
+align-items: center;
+`;
+
+
+const SerachPopUpContainer = styled.div`
+width: 50%;
+display: flex;
+align-items: center;
+
+@media screen and (max-width:1000px){
+    justify-content:end;
+}
+`;
+
+const BtnContainer = styled.div`
+display:flex;
+`
 
 function Header() {
 
+    
+    const [searchQuery,setSearchQuery] = useSearchParams();
 
+    const categoriesQuery = useCategories(0,5);
+    const search = useSearch(searchQuery.get('searchQuery'))
+
+    
+    const handleSearch = (e) =>{
+        setSearchQuery({searchQuery: e.target.value});
+        if(!e.target.value){
+            searchQuery.delete('searchQuery');
+            setSearchQuery(searchQuery);
+        }
+    }
+
+    if (categoriesQuery.isLoading) return <div>Loading...</div>
+    if (categoriesQuery.error) {
+      return <div>{categoriesQuery.error.message}</div>
+    }
 
 
     return (
-        <section className='header'>
-            <div className='container '>
-                <h1 className='logo'>COR'AL</h1>
-                <div className='labels'>
+        <HeaderContainer>
 
-                    <p >Handbag</p>
-                    <p >Watches</p>
-                    <p > Skincare</p>
-                    <p >Jewellery</p>
-                    <p >Apparels</p>
+            <LogoCategreisContainer>
+                <Logo />
+                <FlexContainer>
+                    {categoriesQuery.data.data.categories.map((categoreis) => {
+                       return <Link 
+                       key={categoreis.id} 
+                       href={`/products?category_id=${categoreis.id}&page=0&size=20&type=${categoreis.name}`} 
+                       underline="none" 
+                       color={'secondary.contrastText'} 
+                       sx={{ fontSize: '16px', fontWeight: 500 }}>
+                            {categoreis.name}
+                            </Link>
+                    })}
+                </FlexContainer>
+            </LogoCategreisContainer>
 
-                </div></div>
+            <SerachPopUpContainer>
+                <SearchContainer>
+                    <TxtInput 
+                    placeholder={'Search for Products or brands.....'} 
+                    width='100%' 
+                    isSearch={true} 
+                    onChange={handleSearch} 
+                    value={searchQuery.get('searchQuery')? searchQuery.get('searchQuery') : ''}/>
 
-            <div className='container '>
+                    {searchQuery.get('searchQuery') && !search.isLoading && <SearchPopUp response={search.data.data.products}/> }
+                </SearchContainer>
+                <BtnContainer>
+                    {/* <CoralBtn type={'text'} label={<SvgIcon><Favourties/></SvgIcon>}/> */}
+                    <IconBtn icon={<SvgIcon><Favourties /></SvgIcon>}></IconBtn>
+                    <IconBtn icon={<SvgIcon><User /></SvgIcon>}></IconBtn>
+                    <IconBtn icon={<SvgIcon><Cart /></SvgIcon>}></IconBtn>
+                </BtnContainer>
+            </SerachPopUpContainer>
 
-                <div className="search" >
-                    <div className='search-icon' >
-                        <SearchOutlinedIcon style={{ position: 'absolute', top: '23% ', left: '23% ' }} />
-                    </div>
-                    <input style={{ width: 364 }}
-                        type="text"
-                        placeholder="   Search for products or brands....."
-                    />
-
-                </div>
-
-                <div className='three-Button'>
-                    <IconBtn icon={<FavoriteBorderOutlinedIcon />}></IconBtn>
-                    <IconBtn icon={<PersonOutlineOutlinedIcon />}></IconBtn>
-                    <IconBtn icon={<ShoppingBagOutlinedIcon />}></IconBtn>
-
-
-                </div></div>
-
-        </section>
+        </HeaderContainer>
 
     );
 }
