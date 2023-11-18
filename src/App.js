@@ -4,8 +4,11 @@ import CssBaseline from '@mui/material/CssBaseline/CssBaseline';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './router/router';
 import { ThemeProvider } from '@mui/material';
-import ShowImage from './Component/ShowImage/ShowImage';
+import DetailsDescription from './Component/DetailsDescription/DetailsDescription';
 import ItemDetails from './Component/ItemDetails/ItemDetails';
+import BasicTab from './Component/BasicTab/BasicTab';
+import Brand from './Component/Brand/Brand';
+import Makeup from './Component/Makeup/Makeup';
 
 
 function App() {
@@ -13,8 +16,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <ItemDetails />
-      {/* <RouterProvider router={router} /> */}
+      <Makeup />
     </ThemeProvider>
   );
 

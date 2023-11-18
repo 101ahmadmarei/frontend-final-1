@@ -15,7 +15,7 @@ function CoralCard(props) {
     return (
         < Card sx={{ width: '100%', boxShadow: 0 }}>
             <CardMedia
-                sx={{ height: { xs: '180px', md: '280px' }, width: '100%', borderRadius: 2 }}
+                sx={{ height: { xs: '50px', md: '100px' }, width: '100%', borderRadius: 2 }}
                 image={require('../../static/images/bag.jpg')}
                 title="bag"
             />
@@ -30,7 +30,7 @@ function CoralCard(props) {
                     </FlexContainer> : null}
                     <FlexContainer>
                         <Typography sx={{ color: 'secondary.contrastText', fontSize: '16px', fontWeight: 500 }}>$56.49</Typography>
-                        <Typography sx={{ color: 'secondary.contrastText', fontSize: '16px', fontWeight: 400, color:'error.main' }}>50% OFF</Typography>
+                        <Typography sx={{ color: 'secondary.contrastText', fontSize: '16px', fontWeight: 400, color: 'error.main' }}>50% OFF</Typography>
                     </FlexContainer>
                 </div>
                 <IconBtn icon={<SvgIcon><Favourties /></SvgIcon>}></IconBtn>
