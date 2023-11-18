@@ -5,6 +5,8 @@ import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutl
 import CoralCard from '../Card/CoralCard';
 import CoralBtnIcon from '../CoralBtnIcon/CoralBtnIcon';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+import { useProducts } from '../../API/getNewArrivals';
 
 
 const NewArrivalscontainer = styled.div`
@@ -28,20 +30,33 @@ gap: 30px;
 `;
 
 const NewArrivals = () => {
+
+    const arrivalsQuery = useProducts('/products?new_arrivals=true&page=0&size=4');
+    const navigate = useNavigate();
+
+
+    const handleNavigation = () => {
+        navigate("/products?new_arrivals=true&page=0&size=20&type=NewArrivals");
+    }
+
+    if (arrivalsQuery.isLoading) return <div>Loading...</div>
+    if (arrivalsQuery.error) {
+      return <div>{arrivalsQuery.error.message}</div>
+    }
+
     return (
         <NewArrivalscontainer>
             <NewArrivalsHeader>
                 <Typography sx={{fontSize:{xs:'18px',sm:'28px'}, fontWeight:600, color:'secondary.contrastText'}}>New Arrivals</Typography>
-                <CoralBtnIcon label={'View All'} type={'text'} color={'primary'} endIcon={<ArrowForwardIosOutlinedIcon />} />
+                <CoralBtnIcon label={'View All'} type={'text'} color={'primary'} endIcon={<ArrowForwardIosOutlinedIcon />} onClick={handleNavigation}/>
             </NewArrivalsHeader>
 
 
 
             <CardContainer>
-                <CoralCard />
-                <CoralCard />
-                <CoralCard />
-                <CoralCard />
+                {arrivalsQuery.data.data.products.map((product) => {
+                    return <CoralCard key={Math.random()} product={product}/>
+                })}
             </CardContainer>
         </NewArrivalscontainer>
     );

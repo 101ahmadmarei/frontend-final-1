@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { IconButton, InputAdornment, InputBase, SvgIcon } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { ReactComponent as SearchIcon } from '../../static/icons/search.svg';
+import { useSearchParams } from 'react-router-dom';
 
 const style = {
     backgroundColor: '#F1F1F1',
@@ -11,7 +12,7 @@ const style = {
     padding: '5px',
 }
 
-function TxtInput({ label, placeholder, type, width = '100%', isPassword = false, isSearch = false }) {
+function TxtInput({ label, placeholder, type, width = '100%', isPassword = false, isSearch = false , value ,onChange}) {
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -23,6 +24,8 @@ function TxtInput({ label, placeholder, type, width = '100%', isPassword = false
                 <label htmlFor={label} style={{ fontSize: 14, fontWeight: 400 }}>{label}</label>
             </div>
             <InputBase
+            value={value}
+            onChange={onChange}
                 id={label}
                 placeholder={placeholder}
                 style={style}
