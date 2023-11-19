@@ -9,7 +9,7 @@ import { ReactComponent as User } from '../../static/icons/user.svg'
 import { ReactComponent as Cart } from '../../static/icons/cart.svg'
 import styled from 'styled-components';
 import { useCategories } from '../../API/getCategories';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import SearchPopUp from '../searchPopUp/SearchPopUp';
 import { useSearch } from '../../API/search';
 
@@ -66,6 +66,7 @@ function Header() {
 
     
     const [searchQuery,setSearchQuery] = useSearchParams();
+    const navigate = useNavigate();
 
     const categoriesQuery = useCategories(0,5);
     const search = useSearch(searchQuery.get('searchQuery'))
@@ -89,12 +90,14 @@ function Header() {
         <HeaderContainer>
 
             <LogoCategreisContainer>
-                <Logo />
+                <Logo onClick={() => {
+                    navigate('/');
+                }} />
                 <FlexContainer>
                     {categoriesQuery.data.data.categories.map((categoreis) => {
                        return <Link 
                        key={categoreis.id} 
-                       href={`/products?category_id=${categoreis.id}&page=0&size=20&type=${categoreis.name}`} 
+                       href={`/products?category_id=${categoreis.id}&offset=0&limit=20&type=${categoreis.name}`} 
                        underline="none" 
                        color={'secondary.contrastText'} 
                        sx={{ fontSize: '16px', fontWeight: 500 }}>
