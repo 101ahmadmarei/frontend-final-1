@@ -51,9 +51,8 @@ function Brand() {
             </BrandGrid>
         </BrandsContainer>
 
+         
     );
-
-
 }
 
 export default Brand;

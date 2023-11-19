@@ -37,9 +37,7 @@ function NavigationPage() {
         </NavigationPageContainer>
 
 
-    )
-
-
+    );
 }
 
 export default NavigationPage;

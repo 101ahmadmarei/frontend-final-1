@@ -3,7 +3,21 @@ import * as React from "react";
 import './Makeup.css';
 import { useNavigate } from "react-router";
 
+const MakeupWrapper = styled.div`
+  width: auto;
+  height: 700px;
+  display: block;
+  margin:0px 20px 0px 20px;
+  
+`;
 
+const MakeupContainer = styled.div`
+  width: auto;
+  height: 400px;
+  display: flex;
+  padding: 68px 20px 0px 20px;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.57) 100%);
+`;
 
 export default function Makeup() {
 
@@ -51,5 +65,8 @@ export default function Makeup() {
 
         </div>
     );
-}
+};
+
+
+
 
