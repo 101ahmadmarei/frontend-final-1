@@ -14,7 +14,7 @@ function CoralBtnIcon(props) {
                 paddingX: 3,
                 borderRadius: 1,
                 minHeight: 44,
-                minWidth: 323,
+                minWidth: '100%',
             }}
             color={props.color}>{props.label}</Button>
     )
