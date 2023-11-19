@@ -31,12 +31,12 @@ gap: 30px;
 
 const NewArrivals = () => {
 
-    const arrivalsQuery = useProducts('/products?new_arrivals=true&page=0&size=4');
+    const arrivalsQuery = useProducts('/products?new_arrivals=true&offset=0&limit=4');
     const navigate = useNavigate();
 
 
     const handleNavigation = () => {
-        navigate("/products?new_arrivals=true&page=0&size=20&type=NewArrivals");
+        navigate("/products?new_arrivals=true&offset=0&limit=20&type=NewArrivals");
     }
 
     if (arrivalsQuery.isLoading) return <div>Loading...</div>

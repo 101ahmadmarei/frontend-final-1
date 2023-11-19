@@ -1,55 +1,37 @@
-.BrandsLayout {
-    display: flex;
-    width: auto;
-    height: 236px;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-direction: column;
-    padding: 68px 22px;
-
-
-}
-
+/* .BrandsLayout {
+    display: grid;
+} */
+/* 
 .LogosLayout {
     display: flex;
 
     padding-bottom: 24px;
-}
+} */
 
 
 
-.logo {
-    display: flex;
 
-
-}
-
-.LogosLayout.h1 {
-
+/* .LogosLayout.h1 {
     color: #13101E;
-
-    /* Heading/S-34px */
     font-family: Inter;
     font-size: 34px;
     font-style: normal;
     font-weight: 600;
     line-height: 44px;
-    /* 129.412% */
+} */
 
+/* .Brandsgrid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+    @media screen and (max-width: 800px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-}
+`;
+} */
 
-.Brandsgrid {
-
-    display: flex;
-    width: auto;
-    height: 168px;
-    /* justify-content: space-between; */
-    /* align-items: center; */
-    gap: 56px;
-}
-
-.logos {
+/* .logos {
     width: 168px;
     height: 168px;
     border-radius: 16px;
@@ -63,10 +45,4 @@
     padding: 68px 26px 60px 27px;
     background: url('../assets/bibalogo.png');
     background-repeat: no-repeat;
-
-
-
-
-
-
-}
+} */

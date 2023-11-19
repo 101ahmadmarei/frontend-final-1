@@ -1,33 +1,26 @@
- 
-
-
 import './App.css';
-
-
-
-
- 
-import ShowImage from './Component/ShowImage/ShowImage';
- import { theme } from './theme/theme';
+import { theme } from './theme/theme';
 import './App.css';
 import CssBaseline from '@mui/material/CssBaseline/CssBaseline';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './router/router';
 import { ThemeProvider } from '@mui/material';
- 
+import LoginPage from './pages/loginPage/LoginPage';
+import { CookiesProvider } from 'react-cookie';
+
+
 
 function App() {
+  
   return (
+    <CookiesProvider>
 
-    <>
-
-      < ShowImage />
-
-
-
-
-    </>
-
+      <ThemeProvider theme={theme}>
+        {/* <CssBaseline/>
+      <RouterProvider router={router}/> */}
+        <LoginPage />
+      </ThemeProvider>
+    </CookiesProvider>
 
   );
 }

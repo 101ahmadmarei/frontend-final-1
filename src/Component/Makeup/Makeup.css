@@ -1,53 +1,30 @@
 .selfcare {
-    width: auto;
-    height: 700px;
     display: block;
-
+    padding: 50px 20px;
 }
 
 .makeup {
-    width: auto;
-    height: 400px;
-    display: flex;
-    padding: 68px 20px 0px 20px;
     background: linear-gradient(270deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.57) 100%);
+    background-image: url("../assets/complete1.png");
+    width: '100%';
+    border-radius: 24px;
+    height: 300px;
+    position: relative;
 }
 
 .makeup-com {
-    width: 50%;
-    height: 400px;
-    background-image: url("../assets/complete1.png");
-    border-top-left-radius: 24px;
-    border-bottom-left-radius: 24px;
-    background-blend-mode: normal;
+    position: absolute;
+    top: 100px;
+    left: 100px;
 }
 
-
-
-.makeup-top {
-
-    width: 50%;
-    height: 400px;
-    background-image: url("../assets/top.png");
-    background-repeat: no-repeat;
-    border-top-right-radius: 24px;
-    border-bottom-right-radius: 24px;
-    background-blend-mode: normal;
-
-
-
-}
 
 .makeup-lifestyle {
     color: #97451F;
-    font-family: Inter;
     font-size: 30px;
     font-style: normal;
     font-weight: 400;
     line-height: 20px;
-    padding-left: 41px;
-    padding-top: 109px;
-    position: absolute;
 }
 
 .makeup-accessories {
@@ -58,49 +35,36 @@
     font-style: normal;
     font-weight: 700;
     line-height: 68px;
-    padding-left: 41px;
-    padding-top: 148px;
-    position: absolute;
-
 }
 
 .makeup-bottom {
-    width: 100%;
-    height: 228px;
-    margin-top: 0;
-    padding: 40px 22px 45px 22px;
+    padding: 30px 0;
     display: flex;
-    gap: 40px
+    gap: 30px;
 }
 
 .makeup-left {
-    width: 691px;
+    width: 50%;
     height: 228px;
     flex-shrink: 0;
     border-radius: 16px;
     background: #F8CDE1;
     background-image: url("../assets/left.png");
     background-repeat: no-repeat;
-
-
+    text-align: right;
 }
 
 .skincare-essen {
-    width: 309px;
     color: #A53F64;
     text-align: right;
-    font-family: Inter;
     font-size: 40px;
     font-style: normal;
     font-weight: 700;
     line-height: 52px;
-    padding-top: 26px;
-    padding-left: 350px;
 }
 
 .makeup-right {
-    width: 691px;
-    height: 228px;
+    width: 50%;
     border-radius: 16px;
     background: #D8DBDE;
     background-image: url("../assets/right.png");
@@ -108,14 +72,10 @@
 }
 
 .Facepacks {
-    width: 232px;
     color: #1B4B66;
     text-align: right;
-    font-family: Inter;
     font-size: 40px;
     font-style: normal;
     font-weight: 700;
     line-height: 52px;
-    padding-top: 26px;
-    padding-left: 420px;
 }

@@ -12,9 +12,11 @@ const style = {
     padding: '5px',
 }
 
-function TxtInput({ label, placeholder, type, width = '100%', isPassword = false, isSearch = false , value ,onChange}) {
+function TxtInput({ label, placeholder, type, width = '100%', isPassword = false, isSearch = false, register, value, onChange }) {
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+    // const [tValue,setTValue] = useState('')
 
     return (
         <div style={{ width: width }}>
@@ -24,8 +26,8 @@ function TxtInput({ label, placeholder, type, width = '100%', isPassword = false
                 <label htmlFor={label} style={{ fontSize: 14, fontWeight: 400 }}>{label}</label>
             </div>
             <InputBase
-            value={value}
-            onChange={onChange}
+                onChange={onChange}
+                value={value}
                 id={label}
                 placeholder={placeholder}
                 style={style}
@@ -49,11 +51,13 @@ function TxtInput({ label, placeholder, type, width = '100%', isPassword = false
                         <InputAdornment position="start">
                             {/* <AccountCircle /> */}
                             <SvgIcon>
-                                <SearchIcon/>
+                                <SearchIcon />
                             </SvgIcon>
                         </InputAdornment>
                         : <></>
                 }
+
+                {...register}
             />
         </div>
     )
