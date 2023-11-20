@@ -5,9 +5,12 @@ import Divider from '@mui/material/Divider';
 import CoralBtnIcon from '../CoralBtnIcon/CoralBtnIcon';
 import { ReactComponent as Wishlist } from '../../static/icons/wishlist.svg';
 import { ReactComponent as Outline } from '../../static/icons/outline.svg';
-import { Rating, Stack, SvgIcon } from '@mui/material';
+import { Box, Modal, Rating, Stack, SvgIcon, Typography } from '@mui/material';
 import { useRetriveData } from '../../API/getRetriveData';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+// import { MutateAddToCart } from '../../API/addToCart';
+import { useCookies } from 'react-cookie';
+import { addToCart } from '../../API/addToCart';
 
 
 
@@ -109,13 +112,56 @@ const ButtonContainer = styled.div`
   padding-Top:30px;
 `;
 
-export default function Details({product}) {
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #1B4B66',
+  boxShadow: 24,
+  p: 4,
+};
 
+export default function Details({ product }) {
 
-  console.log(product);
+  const [value, setValue] = useState(1);
+  const [open, setOpen] = useState(false);
+  const [cookies, setCookie,removeCookie] = useCookies(["token"]);
+  const navigate = useNavigate();
+  // const addToCartMutation = MutateAddToCart();
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const handleNavigateLogin = () => {
+    navigate('/login');
+  }
+
+  const handleAddToCart = () => {
+
+    // removeCookie('token',{path:'/'});
+
+    console.log(cookies.token);
+    if (cookies.token) {
+      addToCart(product.id, cookies.token, { "order_quantity": value })
+        .then((result) => {
+          if(result === 'Unauthorized' ){
+            handleOpen()
+          }else{
+            navigate('/myCart')
+          }
+          console.log('result:',result);
+        })
+    } else {
+      handleOpen()
+    }
+  }
+
   return (
     <div>
-      {product && 
+      {product &&
         <DetailsContainer key={product.id}>
           <Description>
             <div className='coach'>{product.name}</div>
@@ -141,18 +187,41 @@ export default function Details({product}) {
           <QuantityContainer>
             <div className='quantity'>Quantity:</div>
             <div className='quantityplus'>
-              <Quantity></Quantity>
+              <Quantity value={value} setValue={setValue}></Quantity>
             </div>
           </QuantityContainer>
 
           <br />
 
           <ButtonContainer>
-            <div style={{ width: 328 }}> <CoralBtnIcon label={"Add to cart"} type={"contained"} color={"primary"} endIcon={<SvgIcon><Outline /></SvgIcon>} /></div>
+            <div style={{ width: 328 }}>
+              <CoralBtnIcon
+                label={"Add to cart"}
+                type={"contained"}
+                color={"primary"}
+                endIcon={<SvgIcon><Outline /></SvgIcon>}
+                click={handleAddToCart} />
+            </div>
             <div style={{ width: 240 }}><CoralBtnIcon label={"Add to wishlist"} type={"outlined"} Icon={<SvgIcon> <Wishlist></Wishlist>  </SvgIcon>} /></div>
           </ButtonContainer>
         </DetailsContainer>
       }
+
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Hello Hello! 
+          </Typography>
+          <Typography id="modal-modal-description" sx={{display:'flex', mt: 2 }}>
+           please &nbsp; <Typography color={'primary'} sx={{fontWeight:800}} onClick={handleNavigateLogin}> login </Typography>&nbsp; or &nbsp;<Typography color={'primary'}> you don't have an account? </Typography>
+          </Typography>
+        </Box>
+      </Modal>
     </div>
   );
 };

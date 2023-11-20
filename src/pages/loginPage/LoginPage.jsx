@@ -8,11 +8,23 @@ import { MutateLogin } from '../../API/login';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { async } from 'q';
-import { useCookies } from 'react-cookie';
+import { Cookies, useCookies } from 'react-cookie';
+import { redirect } from 'react-router';
 
 const errorMessage = styled.p`
 color:#B00020;
 `;
+
+export function loginLoader() {
+  // const [cookies, setCookie,removeCookie] = useCookies(["token"]);
+  const cookies = new Cookies();
+
+  if(cookies.get('token')){
+      return redirect('/')
+  }
+
+  return null
+}
 
 function LoginPage() {
 

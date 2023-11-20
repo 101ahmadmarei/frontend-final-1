@@ -99,7 +99,7 @@ function Tablist(props) {
                         aria-label="basic tabs example"
                         sx={{ backgroundColor: '#F1F1F1' }}
                     >
-                        <Tab label="Product Description" {...a11yProps(0)} />
+                        <Tab label="Product Description"  {...a11yProps(0)} />
                         <Tab label="Related Products" {...a11yProps(1)} />
                         <Tab label="Ratings and Reviews" {...a11yProps(2)} />
                     </Tabs>

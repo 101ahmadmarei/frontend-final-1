@@ -48,7 +48,7 @@ const NewArrivals = () => {
         <NewArrivalscontainer>
             <NewArrivalsHeader>
                 <Typography sx={{fontSize:{xs:'18px',sm:'28px'}, fontWeight:600, color:'secondary.contrastText'}}>New Arrivals</Typography>
-                <CoralBtnIcon label={'View All'} type={'text'} color={'primary'} endIcon={<ArrowForwardIosOutlinedIcon />} onClick={handleNavigation}/>
+                <CoralBtnIcon label={'View All'} type={'text'} color={'primary'} endIcon={<ArrowForwardIosOutlinedIcon />} click={handleNavigation}/>
             </NewArrivalsHeader>
 
 
