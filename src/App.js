@@ -16,9 +16,9 @@ function App() {
     <CookiesProvider>
 
       <ThemeProvider theme={theme}>
-        {/* <CssBaseline/>
-      <RouterProvider router={router}/> */}
-        <LoginPage />
+        <CssBaseline/>
+      <RouterProvider router={router}/>
+        {/* <LoginPage /> */}
       </ThemeProvider>
     </CookiesProvider>
 

@@ -2,6 +2,7 @@ import { Button } from "@mui/base";
 import * as React from "react";
 import './Makeup.css';
 import { useNavigate } from "react-router";
+import styled from "styled-components";
 
 const MakeupWrapper = styled.div`
   width: auto;
