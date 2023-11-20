@@ -11,8 +11,8 @@ function HomePage() {
         <> 
             <NewArrivals />
             <Handpicked />
-            {/* <Brand /> */}
-            {/* <Makeup /> */}
+            <Brand />
+            <Makeup />
         </>
 
     )
