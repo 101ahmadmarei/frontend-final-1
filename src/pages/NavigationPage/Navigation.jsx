@@ -15,10 +15,10 @@ function NavigationPage() {
     const [page, setPage] = useState(1);
     let location = useLocation();
     let [type] = useSearchParams();
-    
+
 
     const productsQuery = useProducts(`/products${location.search}`);
-    
+
 
     if (productsQuery.isLoading) return <div>Loading...</div>
     if (productsQuery.error) {
@@ -31,7 +31,7 @@ function NavigationPage() {
         <NavigationPageContainer>
             <Typography sx={{ fontSize: '32px', fontWeight: 600, color: 'primary.main', margin: '30px 0' }}>{type.get('type')}</Typography>
             <Productlist productsQuery={productsQuery} />
-            <CoralPagination count={Number(productsQuery.data.data.totalPages)} page={page} setPage={setPage}/>
+            <CoralPagination count={Number(productsQuery.data.data.totalPages)} page={page} setPage={setPage} />
         </NavigationPageContainer>
 
 

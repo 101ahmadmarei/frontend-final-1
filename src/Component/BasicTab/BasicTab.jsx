@@ -8,7 +8,6 @@ import styled from 'styled-components'
 import CoralCard from '../Card/CoralCard';
 import { useRelatedProducts } from '../../API/getRelatedProduct';
 import { useRatingReview } from '../../API/getRatingandReview';
-import CircularProgress from '@mui/material/CircularProgress';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
@@ -76,9 +75,8 @@ function Tablist(props) {
 
 
     if (RelatedQuery.isLoading)
-        return <Box sx={{ display: 'flex' }}>
-            <CircularProgress />
-        </Box>
+        return <div>Loading...</div>
+
     if (RelatedQuery.error) {
         return <div>{RelatedQuery.error.message}</div>
     }
@@ -89,7 +87,7 @@ function Tablist(props) {
 
     }
     return (
-        <div className="buttomdetails" style={{ paddingTop: 200 }}>
+        <div className="buttomdetails" style={{ paddingTop: 30 }}>
 
 
 

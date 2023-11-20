@@ -1,25 +1,36 @@
 import ImageGallery from "react-image-gallery";
 import './DetailsCarosel.css';
-const images = [
-    {
-        original: require("../assets/personalcare.png"),
-        thumbnail: require("../assets/personalcare.png"),
-    },
-    {
-        original: require("../assets/personalcare.png"),
-        thumbnail: require("../assets/personalcare.png"),
-    },
-    {
-        original: require("../assets/personalcare.png"),
-        thumbnail: require("../assets/personalcare.png"),
-    },
-];
+import { useRetriveData } from '../../API/getRetriveData';
 
-export default function DetailsCarosel() {
 
+
+export default function DetailsCarosel({img}) {
+
+    const images = [
+        {
+            original: img,
+            thumbnail: img,
+        },
+        {
+            original: img,
+            thumbnail: img,
+        },
+        {
+            original: img,
+            thumbnail: img,
+        },
+        {
+            original: img,
+            thumbnail: img,
+        },
+        {
+            original: img,
+            thumbnail: img,
+        },
+    ];
 
     return (
-        <div style={{ width: '50%', height: 600 }}><ImageGallery items={images} /></div>
+        <div style={{ width: '100%' }}><ImageGallery items={images} /></div>
     );
 
 

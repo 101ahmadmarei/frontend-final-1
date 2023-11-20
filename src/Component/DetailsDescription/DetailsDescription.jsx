@@ -6,6 +6,11 @@ import CoralBtnIcon from '../CoralBtnIcon/CoralBtnIcon';
 import { ReactComponent as Wishlist } from '../../static/icons/wishlist.svg';
 import { ReactComponent as Outline } from '../../static/icons/outline.svg';
 import { Rating, Stack, SvgIcon } from '@mui/material';
+import { useRetriveData } from '../../API/getRetriveData';
+import { useParams } from 'react-router-dom';
+
+
+
 
 const DetailsContainer = styled.div`
   padding-left: 24px;
@@ -101,53 +106,54 @@ const QuantityContainer = styled.div`
 const ButtonContainer = styled.div`
   display: flex;
   gap: 24px;
-  padding-Top:186px;
+  padding-Top:30px;
 `;
 
-export default function Details() {
-  const [value, setValue] = useState(4);
+export default function Details({product}) {
 
+
+  console.log(product);
   return (
-    <DetailsContainer>
-      <Description>
-        <div className='coach'>Coach</div>
-        <div className='leather'>Leather Coach Bag with adjustable straps.</div>
-      </Description>
+    <div>
+      {product && 
+        <DetailsContainer key={product.id}>
+          <Description>
+            <div className='coach'>{product.name}</div>
+            <div className='leather'>{product.description}</div>
+          </Description>
 
-      <Rate>
-        <Stack spacing={1}>
-          <Rating name="read-only" value={value} readOnly defaultValue={2} size="large" />    </Stack>
+          <Rate>
+            <Stack spacing={1}>
+              <Rating name="read-only" value={Number(product.avg_rate)} readOnly defaultValue={2} size="large" />
+            </Stack>
 
-        <div className='how-many-rate'>(250) Ratings</div>
+            <div className='how-many-rate'>({product.count_rate}) Ratings</div>
+          </Rate>
 
-      </Rate>
+          <ProductPricing>
+            <div className='big'>{`$${product.price}`}</div>
+            <div className='medium'>{`$${product.price}`}</div>
+            <div className='small'>{`${product.discount}% OFF`}</div>
+          </ProductPricing>
 
-      <ProductPricing>
+          <Divider />
+          <br />
+          <QuantityContainer>
+            <div className='quantity'>Quantity:</div>
+            <div className='quantityplus'>
+              <Quantity></Quantity>
+            </div>
+          </QuantityContainer>
 
+          <br />
 
-
-        <div className='big'>$54.69</div>
-        <div className='medium'>$78.66</div>
-        <div className='small'>50%OFF</div>
-
-      </ProductPricing>
-
-      <Divider />
-      <br />
-
-      <QuantityContainer>
-        <div className='quantity'>Quantity:</div>
-        <div className='quantityplus'>
-          <Quantity></Quantity>
-        </div>
-      </QuantityContainer>
-
-      <br />
-
-      <ButtonContainer>
-        <div style={{ width: 328 }}> <CoralBtnIcon label={"Add to cart"} type={"contained"} color={"primary"} endIcon={<SvgIcon><Outline /></SvgIcon>} /></div>
-        <div style={{ width: 240 }}><CoralBtnIcon label={"Add to wishlist"} type={"outlined"} Icon={<SvgIcon> <Wishlist />  </SvgIcon>} /></div>
-      </ButtonContainer>
-    </DetailsContainer>
+          <ButtonContainer>
+            <div style={{ width: 328 }}> <CoralBtnIcon label={"Add to cart"} type={"contained"} color={"primary"} endIcon={<SvgIcon><Outline /></SvgIcon>} /></div>
+            <div style={{ width: 240 }}><CoralBtnIcon label={"Add to wishlist"} type={"outlined"} Icon={<SvgIcon> <Wishlist></Wishlist>  </SvgIcon>} /></div>
+          </ButtonContainer>
+        </DetailsContainer>
+      }
+    </div>
   );
-}
+};
+
