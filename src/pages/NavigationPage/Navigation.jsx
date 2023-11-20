@@ -1,3 +1,4 @@
+import React from 'react'
 import React, { useState } from 'react'
 import Productlist from '../../Component/Productlist/Productlist'
 import { Typography } from '@mui/material'
@@ -12,9 +13,7 @@ padding: 0 20px;
 `;
 
 function NavigationPage() {
-
     const [page, setPage] = useState(1);
-
     let location = useLocation();
     let [type] = useSearchParams();
     
@@ -38,6 +37,7 @@ function NavigationPage() {
 
 
     );
+
 }
 
 export default NavigationPage;

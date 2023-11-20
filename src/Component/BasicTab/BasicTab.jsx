@@ -6,6 +6,12 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import styled from 'styled-components'
 import CoralCard from '../Card/CoralCard';
+import { useRelatedProducts } from '../../API/getRelatedProduct';
+import { useRatingReview } from '../../API/getRatingandReview';
+import CircularProgress from '@mui/material/CircularProgress';
+import { useState } from 'react';
+import { useEffect } from 'react';
+
 
 
 const ProductListContainer = styled.div`
@@ -55,12 +61,33 @@ function a11yProps(index) {
 
 {/*main Fun*/ }
 
+
+
+
 function Tablist(props) {
+
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    const RatingQuery = useRatingReview();
+    const RelatedQuery = useRelatedProducts();
+
+
+    if (RelatedQuery.isLoading)
+        return <Box sx={{ display: 'flex' }}>
+            <CircularProgress />
+        </Box>
+    if (RelatedQuery.error) {
+        return <div>{RelatedQuery.error.message}</div>
+    }
+
+    if (RatingQuery.isLoading) return <div>Loading...</div>
+    if (RatingQuery.error) {
+        return <div>{RatingQuery.error.message}</div>
+
+    }
     return (
         <div className="buttomdetails" style={{ paddingTop: 200 }}>
 
@@ -84,14 +111,22 @@ function Tablist(props) {
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={1}>
                     <ProductListContainer>
-                        <CoralCard isRating={true} />
-                        <CoralCard isRating={true} />
-                        <CoralCard isRating={true} />
-                        <CoralCard isRating={true} />
-                        <CoralCard isRating={true} />
+                        {RelatedQuery.data.data.products.map((product) => {
+                            return <CoralCard key={Math.random()} product={product} />
+                        })}
                     </ProductListContainer>
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={2}>
+                    <div>
+
+                        {RatingQuery.data.data.reviews.map((review) => (
+                            <div key={review.id}>
+                                <p>{`Rating: ${review.rate}`}</p>
+                                <p>{review.description}</p>
+                            </div>
+                        ))}
+                    </div>
+
 
                 </CustomTabPanel>
             </Box>
@@ -101,4 +136,5 @@ function Tablist(props) {
 
     );
 }
+
 export default Tablist;

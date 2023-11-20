@@ -1,29 +1,41 @@
 import React from 'react'
-import Header from '../../Component/Header/Header';
-import Footer from '../../Component/Footer/Footer';
-import MoreDetails from '../../Component/MoreDetails/MoreDetails';
-import Productlist from '../../Component/Productlist/Productlist';
-import QuentityCom from '../../Component/QuentityCom/QuentityCom';
-import ShowImage from '../../Component/ShowImage/ShowImage';
-import ItemDetails from '../../Component/ItemDetails/ItemDetails';
+import BasicTab from '../../Component/BasicTab/BasicTab';
+import DetailsCarosel from '../../Component/DetailsCarosel/DetailsCarosel';
+import DetailsDescription from '../../Component/DetailsDescription/DetailsDescription';
+import styled from 'styled-components'
+import "./DetailsPage.css";
 
 
+const detailsPage = styled.div`
+padding: 0 15px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+`;
+
+const container = styled.div`
+display:flex;
+ `;
 
 
-function NavigationPage() {
+function DetailsPage() {
     return (
-        <div className='Details-Page'>
-            <Header />
-            <ItemDetails />
-            <MoreDetails />
+        <detailsPage>
 
-            <Footer />
+            <container>
+                <div><DetailsCarosel /></div>
+                <div><DetailsDescription /></div>
 
-        </div>
+            </container>
+            <BasicTab />
+
+
+
+        </detailsPage>
 
     )
 
 
 }
 
-export default NavigationPage;
+export default DetailsPage();

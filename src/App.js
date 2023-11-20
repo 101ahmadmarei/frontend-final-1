@@ -5,6 +5,8 @@ import CssBaseline from '@mui/material/CssBaseline/CssBaseline';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './router/router';
 import { ThemeProvider } from '@mui/material';
+import DetailsCarosel from './Component/DetailsCarosel/DetailsCarosel';
+import DetailsPage from './pages/DetailsPage/DetailsPage';
 import LoginPage from './pages/loginPage/LoginPage';
 import { CookiesProvider } from 'react-cookie';
 
@@ -23,12 +25,12 @@ function App() {
     </CookiesProvider>
 
   );
-
-
-
-
-
-
 }
+
+
+
+
+
+
 
 export default App;
