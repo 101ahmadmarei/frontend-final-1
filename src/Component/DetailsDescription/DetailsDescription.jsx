@@ -106,24 +106,16 @@ const QuantityContainer = styled.div`
 const ButtonContainer = styled.div`
   display: flex;
   gap: 24px;
-  padding-Top:186px;
+  padding-Top:30px;
 `;
 
-export default function Details() {
+export default function Details({product}) {
 
-  const { id } = useParams();
-  const RetriveQuery = useRetriveData(id);
 
-  if (RetriveQuery.isLoading)
-    return <div>Loading...</div>
-  if (RetriveQuery.error) {
-    return <div>{RetriveQuery.error.message}</div>
-  }
-  const products = RetriveQuery.data.data.products;
-  console.log(products);
+  console.log(product);
   return (
     <div>
-      {products && products.map((product) => (
+      {product && 
         <DetailsContainer key={product.id}>
           <Description>
             <div className='coach'>{product.name}</div>
@@ -132,7 +124,7 @@ export default function Details() {
 
           <Rate>
             <Stack spacing={1}>
-              <Rating name="read-only" value={product.avg_rate} readOnly defaultValue={2} size="large" />
+              <Rating name="read-only" value={Number(product.avg_rate)} readOnly defaultValue={2} size="large" />
             </Stack>
 
             <div className='how-many-rate'>({product.count_rate}) Ratings</div>
@@ -160,7 +152,7 @@ export default function Details() {
             <div style={{ width: 240 }}><CoralBtnIcon label={"Add to wishlist"} type={"outlined"} Icon={<SvgIcon> <Wishlist></Wishlist>  </SvgIcon>} /></div>
           </ButtonContainer>
         </DetailsContainer>
-      ))}
+      }
     </div>
   );
 };

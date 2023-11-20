@@ -87,7 +87,7 @@ function Tablist(props) {
 
     }
     return (
-        <div className="buttomdetails" style={{ paddingTop: 200 }}>
+        <div className="buttomdetails" style={{ paddingTop: 30 }}>
 
 
 
