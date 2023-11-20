@@ -1,0 +1,81 @@
+.selfcare {
+    display: block;
+    padding: 50px 20px;
+}
+
+.makeup {
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.57) 100%);
+    background-image: url("../assets/complete1.png");
+    width: '100%';
+    border-radius: 24px;
+    height: 300px;
+    position: relative;
+}
+
+.makeup-com {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+
+
+.makeup-lifestyle {
+    color: #97451F;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.makeup-accessories {
+    width: 560px;
+    color: #97451F;
+    font-family: Inter;
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 68px;
+}
+
+.makeup-bottom {
+    padding: 30px 0;
+    display: flex;
+    gap: 30px;
+}
+
+.makeup-left {
+    width: 50%;
+    height: 228px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #F8CDE1;
+    background-image: url("../assets/left.png");
+    background-repeat: no-repeat;
+    text-align: right;
+}
+
+.skincare-essen {
+    color: #A53F64;
+    text-align: right;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52px;
+}
+
+.makeup-right {
+    width: 50%;
+    border-radius: 16px;
+    background: #D8DBDE;
+    background-image: url("../assets/right.png");
+    background-repeat: no-repeat;
+}
+
+.Facepacks {
+    color: #1B4B66;
+    text-align: right;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52px;
+}

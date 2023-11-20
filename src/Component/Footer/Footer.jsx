@@ -49,6 +49,7 @@ margin-top:10px
 function Footer() {
 
     const categoriesQuery = useCategories(0,7);
+
     
 
     if (categoriesQuery.isLoading) return <div>Loading...</div>
@@ -65,29 +66,16 @@ function Footer() {
                     <Typography sx={{ fontSize: '16px', fontWeight: 500 }} color={'secondary.main'}>Shop by Category</Typography>
                     <Block>
                     {categoriesQuery.data.data.categories.map((categoreis) => {
-                       return <Link key={Math.random()} href="#" underline="hover" color={'textGray.main'} sx={{ fontSize: '16px', fontWeight: 500 }}>
+                       return <Link 
+                       key={Math.random()} 
+                       href={`/products?category_id=${categoreis.id}&page=0&size=20&type=${categoreis.name}`} 
+                       underline="hover" 
+                       color={'textGray.main'} 
+                       sx={{ fontSize: '16px', fontWeight: 500 }}>
                        {categoreis.name}
                        </Link>
                     })}
                         
-                        {/* <Link href="#" underline="hover" color={'textGray.main'} sx={{ fontSize: '16px', fontWeight: 500 }}>
-                            {'Personal care'}
-                        </Link>
-                        <Link href="#" underline="hover" color={'textGray.main'} sx={{ fontSize: '16px', fontWeight: 500 }}>
-                            {'HandBags'}
-                        </Link>
-                        <Link href="#" underline="hover" color={'textGray.main'} sx={{ fontSize: '16px', fontWeight: 500 }}>
-                            {'Apparels'}
-                        </Link>
-                        <Link href="#" underline="hover" color={'textGray.main'} sx={{ fontSize: '16px', fontWeight: 500 }}>
-                            {'Watches'}
-                        </Link>
-                        <Link href="#" underline="hover" color={'textGray.main'} sx={{ fontSize: '16px', fontWeight: 500 }}>
-                            {'Eyewear'}
-                        </Link>
-                        <Link href="#" underline="hover" color={'textGray.main'} sx={{ fontSize: '16px', fontWeight: 500 }}>
-                            {'Jewellery'}
-                        </Link> */}
                     </Block>
                 </ShopByContainer>
 
@@ -97,7 +85,7 @@ function Footer() {
                         <Link href="#" underline="hover" color={'textGray.main'} sx={{ fontSize: '16px', fontWeight: 500 }}>
                             {'Featured'}
                         </Link>
-                        <Link href="#" underline="hover" color={'textGray.main'} sx={{ fontSize: '16px', fontWeight: 500 }}>
+                        <Link href="brands" underline="hover" color={'textGray.main'} sx={{ fontSize: '16px', fontWeight: 500 }}>
                             {'Brands'}
                         </Link>
                         <Link href="#" underline="hover" color={'textGray.main'} sx={{ fontSize: '16px', fontWeight: 500 }}>

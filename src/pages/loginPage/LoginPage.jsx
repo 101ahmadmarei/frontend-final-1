@@ -1,74 +1,92 @@
 import { Avatar, Button, Checkbox, FormControlLabel, Grid, Link, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system'
-import React from 'react'
+import React, { useState } from 'react'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import TxtInput from '../../Component/textInput/textInput';
+import CoralBtn from '../../Component/CoralBtn/CoralBtn';
+import { MutateLogin } from '../../API/login';
+import { useForm } from 'react-hook-form';
+import styled from 'styled-components';
+import { async } from 'q';
+import { useCookies } from 'react-cookie';
+
+const errorMessage = styled.p`
+color:#B00020;
+`;
 
 function LoginPage() {
+
+  const [wrongMessage, setWrongMessage] = useState('');
+  const [cookies, setCookie] = useCookies(["token"]);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+ 
+  const loginMutation = MutateLogin();
+
+  const handleLogin = async (data) => {
+
+    console.log('email', data.email);
+    console.log('pass', data.password);
+
+    loginMutation.mutate(data, {
+      onSuccess: (data) => {
+
+        if (data.status === 200) {
+          console.log('test',data.status);
+          setCookie("token", data.data.token, { path: "/" });
+        }else{
+          setWrongMessage(data.message)
+        }
+      }
+    })
+  }
+
   return (
     <Box
-    sx={{
-      marginTop: 8,
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    }}
-  >
-    <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-      <LockOutlinedIcon />
-    </Avatar>
-    <Typography component="h1" variant="h5">
-      Login
-    </Typography>
-    <Box component="form"  noValidate sx={{ mt: 1 }}>
-      {/* <TextField
-        margin="normal"
-        required
-        fullWidth
-        id="email"
-        label="Email Address"
-        name="email"
-        autoComplete="email"
-        autoFocus
-      /> */}
-      {/* <TextField
-        margin="normal"
-        required
-        fullWidth
-        name="password"
-        label="Password"
-        type="password"
-        id="password"
-        autoComplete="current-password"
-      /> */}
-      <TxtInput label={'Email'} type={'email'} placeholder={'example@example.com'}/>
-      <TxtInput label={'Password'} type={'password'} placeholder={'................'}/>
-      <FormControlLabel
-        control={<Checkbox value="remember" color="primary" />}
-        label="Remember me"
-      />
-      <Button
-        type="submit"
-        fullWidth
-        variant="contained"
-        sx={{ mt: 3, mb: 2 }}
-      >
+      sx={{
+        marginTop: 8,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
+      <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+        <LockOutlinedIcon />
+      </Avatar>
+      <Typography component="h1" variant="h5">
         Login
-      </Button>
-      <Grid container>
-        <Grid item xs>
-          <Link href="#" variant="body2">
-            Forgot password?
-          </Link>
+      </Typography>
+      <Box sx={{ mt: 1 }} >
+
+        <form onSubmit={handleSubmit(handleLogin)}>
+          <TxtInput register={register("email", { required: { value: true, message: "Email Feild is empty!" } })} label={'Email'} type={'email'} placeholder={'example@example.com'} />
+          <TxtInput register={register("password", { required: { value: true, message: "Password Feild is empty!" } })} label={'Password'} type={'password'} placeholder={'................'} />
+          <Typography color={'error'}>{errors?.email?.message}</Typography>
+          <Typography color={'error'}>{errors?.password?.message}</Typography>
+          <Typography color={'error'}>{wrongMessage}</Typography>
+          <CoralBtn label={'Login'} type={'contained'} />
+
+        </form>
+
+        <Grid container>
+          <Grid item xs>
+            <Link href="#" variant="body2">
+              Forgot password?
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link href="#" variant="body2">
+              {"Don't have an account? Sign Up"}
+            </Link>
+          </Grid>
         </Grid>
-        <Grid item>
-          <Link href="#" variant="body2">
-            {"Don't have an account? Sign Up"}
-          </Link>
-        </Grid>
-      </Grid>
+      </Box>
     </Box>
-  </Box>
   )
 }
 
