@@ -5,7 +5,7 @@ import { ReactComponent as Favourties } from '../../static/icons/favourties.svg'
 import styled from 'styled-components';
 import PropTypes from 'prop-types'
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const FlexContainer = styled.div`
 display:flex;
@@ -13,8 +13,13 @@ align-items:center;
 gap:10px
 `;
 function CoralCard(props) {
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate(`/productdetails/${props.product.id}`);
+
+    }
     return (
-        < Card sx={{ width: '100%', boxShadow: 0 }}>
+        < Card sx={{ width: '100%', boxShadow: 0 }} onClick={handleClick}>
             <CardMedia
                 sx={{ height: { xs: '50px', md: '100px' }, width: '100%', borderRadius: 2 }}
                 image={require('../../static/images/bag.jpg')}
