@@ -46,8 +46,8 @@ border-color:#1B4B66;
   width: 20px;
 `;
 
-function Quantity() {
-    const [value, setValue] = useState(1);
+function Quantity({value, setValue}) {
+    // const [value, setValue] = useState(1);
 
     const increment = () => {
         setValue(prevValue => prevValue + 1);

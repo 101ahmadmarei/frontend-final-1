@@ -26,7 +26,7 @@ function DetailsPage() {
     return (
         <div style={{padding:20}}>
             <div style={{ display: 'flex', marginBottom: 55, width: '100%' }}>
-                <div style={{ width: '50%', height: 605 }}>
+                <div style={{ width: '50%',  }}>
                     <DetailsCarosel img={RetriveQuery.data.data[0].img}/>
                 </div>
                 <div>

@@ -21,8 +21,8 @@ function CoralCard(props) {
     return (
         < Card sx={{ width: '100%', boxShadow: 0 }} onClick={() => { handleClick() }}>
             <CardMedia
-                sx={{ height: { xs: '50px', md: '100px' }, width: '100%', borderRadius: 2 }}
-                image={require('../../static/images/bag.jpg')}
+                sx={{ height: { xs: '50px', md: '280px' }, width: '100%', borderRadius: 2 }}
+                image={props.product.img}
                 title="bag"
             />
 
