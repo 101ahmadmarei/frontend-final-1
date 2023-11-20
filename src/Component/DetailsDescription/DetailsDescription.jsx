@@ -7,6 +7,7 @@ import { ReactComponent as Wishlist } from '../../static/icons/wishlist.svg';
 import { ReactComponent as Outline } from '../../static/icons/outline.svg';
 import { Rating, Stack, SvgIcon } from '@mui/material';
 import { useRetriveData } from '../../API/getRetriveData';
+import { useParams } from 'react-router-dom';
 
 
 
@@ -109,9 +110,9 @@ const ButtonContainer = styled.div`
 `;
 
 export default function Details() {
-  const [value, setValue] = useState(4);
-  const RetriveQuery = useRetriveData();
 
+  const { id } = useParams();
+  const RetriveQuery = useRetriveData(id);
 
   if (RetriveQuery.isLoading)
     return <div>Loading...</div>
@@ -119,7 +120,7 @@ export default function Details() {
     return <div>{RetriveQuery.error.message}</div>
   }
   const products = RetriveQuery.data.data.products;
-
+  console.log(products);
   return (
     <div>
       {products && products.map((product) => (
@@ -131,7 +132,7 @@ export default function Details() {
 
           <Rate>
             <Stack spacing={1}>
-              <Rating name="read-only" value={value} readOnly defaultValue={2} size="large" />
+              <Rating name="read-only" value={product.avg_rate} readOnly defaultValue={2} size="large" />
             </Stack>
 
             <div className='how-many-rate'>({product.count_rate}) Ratings</div>

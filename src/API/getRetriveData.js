@@ -1,8 +1,8 @@
 import { useQuery } from "react-query";
 import instance from "./apiConfig";
 
-const getProducts = async () => {
-    let url = "products/2";
+const getProducts = async (id) => {
+    let url = `/products/${id}`;
     try {
         const result = await instance(url, {
             method: "GET",
@@ -17,9 +17,9 @@ const getProducts = async () => {
 }
 
 
-export const useRetriveData = () => {
+export const useRetriveData = (id) => {
     return useQuery({
-        queryKey: ["products", "Retrive", "get"],
-        queryFn: () => getProducts(),
+        queryKey: ["products", "Retrive", id, "get"],
+        queryFn: () => getProducts(id),
     })
 }
