@@ -23,7 +23,7 @@ function PageHeader(props) {
 
     return (
         <Container>
-            <Typography variant='h1' component='h1' sx={{ fontSize: 24, fontWeight: 600, color: 'primary.main' }}>{props.title}</Typography>
+            <Typography sx={{ fontSize: '34px', fontWeight: 600, color: 'primary.main', paddingBottom:'20px' }}>{props.title}</Typography>
             {props.logoutBtn ?
                 <CoralBtnIcon label='Logout' type={'outlined'} icon={<LogoutOutlinedIcon />} />
                 : null}

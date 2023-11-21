@@ -1,8 +1,29 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import './ItemTable.css'
 import ItemRow from '../itemRow/ItemRow'
+import { Typography } from '@mui/material'
+import { useMyCart } from '../../API/getMyProducts';
 
-function ItemTable({showFunctions}) {
+function ItemTable({orderID}) {
+
+    const myCartQuery = useMyCart();
+
+
+    
+
+    const productsRows = useMemo(()=> {
+        return myCartQuery.data?.data?.[0].order_products.map((product, index) =>{
+            return <ItemRow key={index} product={product} orderId={myCartQuery.data.data?.[0].id}/>
+        })
+    },[myCartQuery.data])
+
+
+    if (myCartQuery.isLoading) return <div>Loading...</div>
+    if (myCartQuery.error) {
+      return <div>{myCartQuery.error.message}</div>
+    }
+
+
     return (
         <div className='Table-container'>
             <div className='Table-header'>
@@ -13,9 +34,8 @@ function ItemTable({showFunctions}) {
                     <p style={{color:'#626262'}}>Subtotal</p>
                 </div>
             </div>
-
-            <ItemRow showFunctions={showFunctions}/>
-            <ItemRow showFunctions={showFunctions}/>
+            {!!productsRows && productsRows.length > 0 && productsRows}
+            {(!productsRows || productsRows.length === 0 ) && <Typography sx={{color:'primary.main', fontSize:16, fontWeight:600, textAlign:'center', paddingTop:'30px'}}>No product found</Typography>}
         </div>
     )
 }
