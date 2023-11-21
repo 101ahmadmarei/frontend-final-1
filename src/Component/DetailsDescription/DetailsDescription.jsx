@@ -109,13 +109,13 @@ const ButtonContainer = styled.div`
   padding-Top:30px;
 `;
 
-export default function Details({product}) {
+export default function Details({ product }) {
 
 
   console.log(product);
   return (
     <div>
-      {product && 
+      {product &&
         <DetailsContainer key={product.id}>
           <Description>
             <div className='coach'>{product.name}</div>
