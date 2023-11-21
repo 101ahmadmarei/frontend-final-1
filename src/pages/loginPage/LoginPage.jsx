@@ -9,7 +9,7 @@ import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { async } from 'q';
 import { Cookies, useCookies } from 'react-cookie';
-import { redirect } from 'react-router';
+import { redirect , useNavigate} from 'react-router';
 
 const errorMessage = styled.p`
 color:#B00020;
@@ -30,6 +30,7 @@ function LoginPage() {
 
   const [wrongMessage, setWrongMessage] = useState('');
   const [cookies, setCookie] = useCookies(["token"]);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -51,6 +52,7 @@ function LoginPage() {
         if (data.status === 200) {
           console.log('test',data.status);
           setCookie("token", data.data.token, { path: "/" });
+          navigate('/');
         }else{
           setWrongMessage(data.message)
         }
