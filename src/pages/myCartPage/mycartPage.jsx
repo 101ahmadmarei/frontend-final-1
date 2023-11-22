@@ -2,7 +2,6 @@ import React from 'react'
 import ItemTable from '../../Component/itemTable/ItemTable'
 import Summary from '../../Component/summary/Summary'
 import './myCartPage.css'
-import { Typography } from '@mui/material'
 import styled from 'styled-components'
 import PageHeader from '../../Component/pageHeader/PageHeader'
 import { useMyCart } from '../../API/getMyProducts'
@@ -26,9 +25,7 @@ display:flex;
 gap:10px;
 `;
 
-const Container = styled.div`
-position:relative;
-`;
+
 function MycartPage() {
 
   const navigate = useNavigate();
@@ -61,8 +58,8 @@ function MycartPage() {
               <CoralBtn label={'Place Order'} type={'contained'} click={handlePlaceOrder}/>
               <CoralBtn label={'Continue Shoping'} type={'outlined'} click={handleContinueShoping}/>
             </FlexContainer>
-
           </div>
+
         </MyCart>
 
       </MyCartContainer>
