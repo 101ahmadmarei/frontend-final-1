@@ -11,15 +11,8 @@ gap: 10px
 
 function OrderPage() {
     return (
-        <div>
-            <PageHeader title={'Order#874522648'} />
-
-            <FlexStyle>
-                <ProfileList />
-                <div style={{ width: '100%' }}>
-                    <Order/>
-                </div>
-            </FlexStyle>
+        <div style={{ width: '100%' }}>
+            <Order />
         </div>
     )
 }

@@ -8,16 +8,29 @@ import { MutateLogin } from '../../API/login';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { async } from 'q';
-import { useCookies } from 'react-cookie';
+import { Cookies, useCookies } from 'react-cookie';
+import { redirect , useNavigate} from 'react-router';
 
 const errorMessage = styled.p`
 color:#B00020;
 `;
 
+export function loginLoader() {
+  // const [cookies, setCookie,removeCookie] = useCookies(["token"]);
+  const cookies = new Cookies();
+
+  if(cookies.get('token')){
+      return redirect('/')
+  }
+
+  return null
+}
+
 function LoginPage() {
 
   const [wrongMessage, setWrongMessage] = useState('');
   const [cookies, setCookie] = useCookies(["token"]);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -39,6 +52,7 @@ function LoginPage() {
         if (data.status === 200) {
           console.log('test',data.status);
           setCookie("token", data.data.token, { path: "/" });
+          navigate('/');
         }else{
           setWrongMessage(data.message)
         }

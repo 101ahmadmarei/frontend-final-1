@@ -1,14 +1,18 @@
 import { useMutation} from "react-query";
 import instance from "./apiConfig";
+import { useCookies } from "react-cookie";
 
-const login = async (data) => {
+export const addToCart = async (id,token,data) => {
+
+    // const [cookies] = useCookies(["token"]);
+
     try{
-        
-        const uri = `/login`;
+        const uri = `/orders/products/${id}`;
         const result = await instance(uri,{
             method: "POST",
             headers:{
                 "content-type": "application/json",
+                "Authorization" : token,
             },
             data:data
         })
@@ -19,8 +23,8 @@ const login = async (data) => {
 }
 
 
-export const MutateLogin =  () => {
-    return useMutation({
-        mutationFn: login,
-    })
-}
+// export const MutateAddToCart =  () => {
+//     return useMutation({
+//         mutationFn: addToCart,
+//     })
+// }

@@ -7,7 +7,7 @@ import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import TxtInput from '../textInput/textInput';
 
 const PersonalInfoContainer = styled.div`
-width: 100%
+width: 100%;
 `;
 
 const FlexStyle = styled.div`
@@ -25,15 +25,7 @@ function PersonalInfo() {
         <PersonalInfoContainer>
             <Typography component='p' sx={{fontWeight:600, width: '100%', borderBlockEnd: '1px solid', borderColor: 'secondary.main' }}>Personal Information</Typography>
             <PersonalInfoContent>
-                <FlexStyle>
-                    <Avatar
-                        alt="user"
-                        src={require('../../static/images/1.jpg')}
-                        sx={{ width: 80, height: 80, }} />
 
-                    <CoralBtn label={'upload'} type={'contained'} />
-                    <CoralBtnIcon label={'Delete'} type={'outlined'} icon={<DeleteOutlinedIcon />} color={'error'} />
-                </FlexStyle>
 
                 <FlexStyle>
                     <TxtInput label={'First Name'} type={'text'} placeholder={'Your Name'}/>

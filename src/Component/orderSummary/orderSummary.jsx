@@ -1,30 +1,43 @@
 import React from 'react'
 import './orderSummary.css'
+import { useMyCart } from '../../API/getMyProducts';
 
 function OrderSummary() {
-  return (
-    <div>
-        <div className='order-summary-row'>
-            <p className='order-summary-title' style={{color:'#626262'}} >sub Total</p>
-            <p className='order-summary-data'>$119.69</p>
-        </div>
+    const myCartQuery = useMyCart();
 
-        <div className='order-summary-row'>
-            <p className='order-summary-title' style={{color:'#626262'}}>Discount</p>
-            <p className='order-summary-data'>-$13.40</p>
-        </div>
+    if (myCartQuery.isLoading) return <div>Loading...</div>
+    if (myCartQuery.error) {
+        return <div>{myCartQuery.error.message}</div>
+    }
 
-        <div className='order-summary-row'>
-            <p className='order-summary-title' style={{color:'#626262'}}>Delivery Fee</p>
-            <p className='order-summary-data'>-$0.00</p>
-        </div>
+    return (
+        <div>
+            {myCartQuery.data?.data != undefined ?
+                <>
+                    <div className='order-summary-row'>
+                        <p className='order-summary-title' style={{ color: '#626262' }} >sub Total</p>
+                        <p className='order-summary-data'>${myCartQuery.data.data[0].total_price}</p>
+                    </div>
 
-        <div className='order-summary-row'>
-            <p className='order-summary-title' style={{fontWeight:700}}>Grand total</p>
-            <p className='order-summary-data' style={{fontWeight:700}}>$106.29</p>
+                    <div className='order-summary-row'>
+                        <p className='order-summary-title' style={{ color: '#626262' }}>Discount</p>
+                        <p className='order-summary-data'>-${myCartQuery.data.data[0].total_discount}</p>
+                    </div>
+
+                    <div className='order-summary-row'>
+                        <p className='order-summary-title' style={{ color: '#626262' }}>Delivery Fee</p>
+                        <p className='order-summary-data'>-${myCartQuery.data.data[0].delivery_fees}</p>
+                    </div>
+
+                    <div className='order-summary-row'>
+                        <p className='order-summary-title' style={{ fontWeight: 700 }}>Grand total</p>
+                        <p className='order-summary-data' style={{ fontWeight: 700 }}>${myCartQuery.data.data[0].grand_total}</p>
+                    </div>
+                </> :
+                <></>
+            }
         </div>
-    </div>
-  )
+    )
 }
 
 export default OrderSummary
