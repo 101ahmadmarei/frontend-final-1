@@ -2,6 +2,8 @@ import { Checkbox, FormControlLabel, Typography } from '@mui/material';
 import React from 'react'
 import styled from 'styled-components'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { useNavigate } from 'react-router';
+import IconBtn from '../IconBtn/IconBtn';
 
 const Container = styled.div`
 display:flex;
@@ -13,17 +15,25 @@ padding: 5px 50px 5px 10px;
 margin-top: 10px;
 `;
 
-function OrderTableRow() {
+function OrderTableRow({order}) {
+
+  const navigate = useNavigate();
+
+  const handleOrderNavigate = () => {
+    navigate(`/personalInformation/order/${order.id}`)
+  }
   return (
     <Container>
-         <FormControlLabel control={<Checkbox />} label="#874556556" sx={{width:'80px'}}/>
-         <Typography sx={{width:'80px'}}>Septemper 5, 2020</Typography>
-         <Typography sx={{width:'80px'}}>$218.50</Typography>
-         <Typography sx={{width:'80px'}}>Paid</Typography>
-         <Typography sx={{width:'80px'}}><ArrowForwardIosIcon sx={{width:18, height:18}}/></Typography>
+         <FormControlLabel control={<Checkbox />} label={order.id} sx={{width:'80px'}}/>
+         <Typography sx={{width:'80px'}}>{order.created_at}</Typography>
+         <Typography sx={{width:'80px'}}>${order.price}</Typography>
+         <Typography sx={{width:'80px'}}>{order.status}</Typography>
+         {/* <Typography sx={{width:'80px'}} onClick={handleOrderNavigate} ></Typography> */}
+         <IconBtn icon={<ArrowForwardIosIcon sx={{width:18, height:18}}/>} click={handleOrderNavigate}/>
 
     </Container>
   )
 }
 
+// Septemper 5, 2020
 export default OrderTableRow
