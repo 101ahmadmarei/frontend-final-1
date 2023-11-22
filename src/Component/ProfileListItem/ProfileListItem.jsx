@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import styled from 'styled-components';
 import PropTypes from 'prop-types'
+import { click } from '@testing-library/user-event/dist/click';
 
 const PrfileListItemContainer = styled.div`
 display: flex;
@@ -23,20 +24,20 @@ align-items: center;
 const Clickedstyle = styled.div`
 width: 3px;
 height: 90%;
-margin: 0 5px
+margin: 0 5px;
 `
 function ProfileListItem(props) {
 
-    const [isClicked, setIsClicked] = useState(false);
+    // const [isClicked, setIsClicked] = useState(false);
     return (
 
 
-        <PrfileListItemContainer>
+        <PrfileListItemContainer onClick={props.click}>
             <Clickedcontainer>
-                <Clickedstyle style={{ backgroundColor: isClicked ? '#1B4B66' : '#F4F4F4' }}></Clickedstyle>
-                <Typography component='p' sx={{ color: isClicked ? 'primary.main' : 'secondary.contrastText' }}>{props.title}</Typography>
+                <div style={{width:'3px',height:'90%',margin:'0 5px', backgroundColor: props.isSelected ? '#1B4B66' : '#F4F4F4' }}></div>
+                <Typography component='p' sx={{ color: props.isSelected ? 'primary.main' : 'secondary.contrastText' }}>{props.title}</Typography>
             </Clickedcontainer>
-            <ArrowForwardIosOutlinedIcon sx={{ color: isClicked ? 'primary.main' : 'secondary.contrastText' , width:16, height:16, padding:'0 5px'}} />
+            <ArrowForwardIosOutlinedIcon sx={{ color: props.isSelected ? 'primary.main' : 'secondary.contrastText' , width:26, height:26, padding:'0 5px'}} />
         </PrfileListItemContainer>
 
     )
@@ -44,6 +45,8 @@ function ProfileListItem(props) {
 
 ProfileListItem.propTypes = {
     title: PropTypes.string,
+    isSelected : PropTypes.bool,
+    click: PropTypes.func,
 }
 
 

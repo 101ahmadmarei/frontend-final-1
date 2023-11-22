@@ -80,6 +80,10 @@ function Header() {
         }
     }
 
+    const handleNavigate = (url) => {
+        navigate(url)
+    }
+
     if (categoriesQuery.isLoading) return <div>Loading...</div>
     if (categoriesQuery.error) {
       return <div>{categoriesQuery.error.message}</div>
@@ -120,8 +124,8 @@ function Header() {
                 </SearchContainer>
                 <BtnContainer>
                     {/* <CoralBtn type={'text'} label={<SvgIcon><Favourties/></SvgIcon>}/> */}
-                    <IconBtn icon={<SvgIcon><Favourties /></SvgIcon>}></IconBtn>
-                    <IconBtn icon={<SvgIcon><User /></SvgIcon>}></IconBtn>
+                    <IconBtn icon={<SvgIcon><Favourties /></SvgIcon>} ></IconBtn>
+                    <IconBtn icon={<SvgIcon><User /></SvgIcon>} click={()=>{handleNavigate('/personalInformation')}}></IconBtn>
                     <IconBtn icon={<SvgIcon><Cart /></SvgIcon>}></IconBtn>
                 </BtnContainer>
             </SerachPopUpContainer>
