@@ -13,25 +13,12 @@ padding:30px;
 
 function CheckOutPage() {
     return (
-<<<<<<< HEAD
-        <div className='checkout-page'>
-            <div className='accordion-container'>
-                <CoralAccordion summary={'Add New Address'} details={<NewAddress />} />
-                <CoralAccordion summary={'Payment'} details={<NewAddress />} />
-            </div>
-
-            <div className='summary-container'>
-                <CheckoutSummary />
-                <div style={{ paddingTop: 40 }}>
-                    <Summary title='Order Details' />
-=======
         <Container>
             <PageHeader title={'CheckOut'} />
             <div className='checkout-page'>
                 <div className='accordion-container'>
                     <CoralAccordion summary={'Add New Address'} details={<NewAddress />} />
                     <CoralAccordion summary={'Payment'} details={<NewAddress />} />
->>>>>>> ab7869b8eed640eef81ccdac397a84ac03f171c1
                 </div>
 
                 <div className='summary-container'>

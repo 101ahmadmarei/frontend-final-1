@@ -1,20 +1,17 @@
 import { useMutation } from "react-query";
 import instance from "./apiConfig";
+import { useCookies } from "react-cookie"; // Import useCookies from 'react-cookie'
 
-
-const createAddress = async (data) => {
+const createAddress = async (data, token) => {
     try {
-        console.log(data);
-        const cookies = new cookies();
         const url = "/users/addresses";
         const result = await instance(url, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": cookies.get("token"),
-
+                Authorization: token,
             },
-            data: data
+            data: data,
         });
         return result;
     } catch (err) {
@@ -23,8 +20,12 @@ const createAddress = async (data) => {
 };
 
 export const useCreateAddress = () => {
+    const [cookies] = useCookies(["token"]); // Use useCookies hook within a component or a custom hook
 
-    return useMutation({
-        mutationFn: (data) => createAddress(data)
-    });
+    const mutateAddress = async (data) => {
+        const token = cookies.token || ''; // Get the token from cookies or set a default value
+        return await createAddress(data, token);
+    };
+
+    return useMutation(mutateAddress);
 };
