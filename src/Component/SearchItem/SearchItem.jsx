@@ -23,7 +23,7 @@ function SearchItem(props) {
     <SearchItemContainer>
 
     <ImageContainer>
-        <img src={props.product.img} alt='bag' width={'100%'} height={'100%'} style={{borderRadius:'10px'}}/>
+        <img src={props.product.img} alt='bag' width={'75px'} height={'75px'} style={{borderRadius:'10px'}}/>
     </ImageContainer>
 
     <SearchItemInfo>

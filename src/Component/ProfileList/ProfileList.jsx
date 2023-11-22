@@ -31,7 +31,7 @@ function ProfileList() {
         <ProfileListItem 
         title='My orders'
         isSelected={selectedItem === 'My orders'}
-        click={() => {handleItemClick('My orders','myOrders')}}/>
+        click={() => {handleItemClick('My orders','/personalInformation/myOrders')}}/>
 
         <ProfileListItem title='Refer and Earn'/>
         <ProfileListItem title='My wishlist'/>
