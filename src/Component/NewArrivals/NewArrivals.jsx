@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { CircularProgress, Typography } from '@mui/material';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import CoralCard from '../Card/CoralCard';
 import CoralBtnIcon from '../CoralBtnIcon/CoralBtnIcon';
@@ -40,7 +40,7 @@ const NewArrivals = () => {
         navigate("/products?new_arrivals=true&offset=0&limit=20&type=NewArrivals");
     }
 
-    if (arrivalsQuery.isLoading) return <div>Loading...</div>
+    if (arrivalsQuery.isLoading) return <div style={{textAlign:'center'}}><CircularProgress /> </div>
     if (arrivalsQuery.error) {
       return <div>{arrivalsQuery.error.message}</div>
     }

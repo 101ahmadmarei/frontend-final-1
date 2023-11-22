@@ -18,7 +18,7 @@ function ItemTable({orderID}) {
     },[myCartQuery.data])
 
 
-    if (myCartQuery.isLoading) return <div>Loading...</div>
+    if (myCartQuery.isLoading) return <div></div>
     if (myCartQuery.error) {
       return <div>{myCartQuery.error.message}</div>
     }
