@@ -13,7 +13,9 @@ import DetailsCarosel from './Component/DetailsCarosel/DetailsCarosel';
 import DetailsPage from './pages/DetailsPage/DetailsPage';
 import LoginPage from './pages/loginPage/LoginPage';
 import { CookiesProvider } from 'react-cookie';
+import NewAddress from './Component/newAdress/NewAddress';
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -23,8 +25,8 @@ function App() {
 
       <ThemeProvider theme={theme}>
         <CssBaseline />
+
         <RouterProvider router={router} />
-        {/* <LoginPage /> */}
       </ThemeProvider>
     </CookiesProvider>
 

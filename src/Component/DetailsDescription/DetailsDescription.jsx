@@ -128,7 +128,7 @@ export default function Details({ product }) {
 
   const [value, setValue] = useState(1);
   const [open, setOpen] = useState(false);
-  const [cookies, setCookie,removeCookie] = useCookies(["token"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["token"]);
   const navigate = useNavigate();
   // const addToCartMutation = MutateAddToCart();
 
@@ -147,12 +147,12 @@ export default function Details({ product }) {
     if (cookies.token) {
       addToCart(product.id, cookies.token, { "order_quantity": value })
         .then((result) => {
-          if(result === 'Unauthorized' ){
+          if (result === 'Unauthorized') {
             handleOpen()
-          }else{
+          } else {
             navigate('/myCart')
           }
-          console.log('result:',result);
+          console.log('result:', result);
         })
     } else {
       handleOpen()
@@ -215,10 +215,10 @@ export default function Details({ product }) {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Hello Hello! 
+            Hello Hello!
           </Typography>
-          <Typography id="modal-modal-description" sx={{display:'flex', mt: 2 }}>
-           please &nbsp; <Typography color={'primary'} sx={{fontWeight:800}} onClick={handleNavigateLogin}> login </Typography>&nbsp; or &nbsp;<Typography color={'primary'}> you don't have an account? </Typography>
+          <Typography id="modal-modal-description" sx={{ display: 'flex', mt: 2 }}>
+            please &nbsp; <Typography color={'primary'} sx={{ fontWeight: 800 }} onClick={handleNavigateLogin}> login </Typography>&nbsp; or &nbsp;<Typography color={'primary'}> you don't have an account? </Typography>
           </Typography>
         </Box>
       </Modal>
