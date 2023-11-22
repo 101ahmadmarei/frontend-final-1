@@ -5,9 +5,10 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import styled from 'styled-components';
-import CoralBtn from '../CoralBtn/CoralBtn';
-import OrderTable from '../OrderTable/OrderTable';
 import OrderTableRow from '../OrderTableRow/OrderTableRow';
+import { useState } from 'react';
+import { useOrderDetails } from '../../API/getOrderDetails';
+import OrderTable from '../OrderTable/OrderTable';
 
 const Container = styled.div`
 // width: 100%;
@@ -62,11 +63,22 @@ function a11yProps(index) {
 }
 
 function MyOrderNavigation() {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
+
+  const prossecing = useOrderDetails('processing');
+  const completed = useOrderDetails('completed');
+  const canceled = useOrderDetails('cancelled');
+
+
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  if (prossecing.isLoading || completed.isLoading || canceled.isLoading) return <div>Loading...</div>
+  if (prossecing.error || completed.error || canceled.error) {
+    return <div>{prossecing.error.message}</div>
+  }
 
   return (
 
@@ -79,49 +91,14 @@ function MyOrderNavigation() {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <Container1>
-          <TableHeader>
-            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Order ID</Typography>
-            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Date</Typography>
-            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Price</Typography>
-            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Status</Typography>
-            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}> </Typography>
-          </TableHeader>
-          <OrderTableRow />
-          <OrderTableRow />
-          <OrderTableRow />
-          <OrderTableRow />
-        </Container1>
+
+        {completed.data?.data != undefined ? <OrderTable orders={completed.data.data.orders}/> : <Typography>No Completed orders</Typography>}
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <Container1>
-          <TableHeader>
-            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Order ID</Typography>
-            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Date</Typography>
-            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Price</Typography>
-            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Status</Typography>
-            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}> </Typography>
-          </TableHeader>
-          <OrderTableRow />
-          <OrderTableRow />
-          <OrderTableRow />
-          <OrderTableRow />
-        </Container1>
+        {prossecing.data?.data != undefined ? <OrderTable orders={prossecing.data.data.orders}/> : <Typography>No prossecing orders</Typography>}
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        <Container1>
-          <TableHeader>
-            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Order ID</Typography>
-            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Date</Typography>
-            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Price</Typography>
-            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Status</Typography>
-            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}> </Typography>
-          </TableHeader>
-          <OrderTableRow />
-          <OrderTableRow />
-          <OrderTableRow />
-          <OrderTableRow />
-        </Container1>
+        {canceled.data?.data != undefined ? <OrderTable orders={canceled.data.data.orders}/> : <Typography>No prossecing cancelled</Typography>}
       </CustomTabPanel>
     </Box>
   );
