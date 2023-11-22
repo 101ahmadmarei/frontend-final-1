@@ -84,7 +84,7 @@ function Header() {
         navigate(url)
     }
 
-    if (categoriesQuery.isLoading) return <div>Loading...</div>
+    if (categoriesQuery.isLoading) return <div></div>
     if (categoriesQuery.error) {
       return <div>{categoriesQuery.error.message}</div>
     }

@@ -75,7 +75,7 @@ function MyOrderNavigation() {
     setValue(newValue);
   };
 
-  if (prossecing.isLoading || completed.isLoading || canceled.isLoading) return <div>Loading...</div>
+  if (prossecing.isLoading || completed.isLoading || canceled.isLoading) return <div></div>
   if (prossecing.error || completed.error || canceled.error) {
     return <div>{prossecing.error.message}</div>
   }

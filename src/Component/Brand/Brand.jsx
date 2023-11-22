@@ -30,7 +30,7 @@ function Brand() {
         navigate(`/products?brand_id=${brandId}&offset=0&limit=20&type=${brandName}`);
     }
 
-    if (brandsQuery.isLoading) return <div>Loading...</div>
+    if (brandsQuery.isLoading) return <div></div>
     if (brandsQuery.error) {
       return <div>{brandsQuery.error.message}</div>
     }
