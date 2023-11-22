@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import styled from 'styled-components';
 import CoralBtn from '../CoralBtn/CoralBtn';
 import OrderTable from '../OrderTable/OrderTable';
+import OrderTableRow from '../OrderTableRow/OrderTableRow';
 
 const Container = styled.div`
 // width: 100%;
@@ -15,6 +16,17 @@ background-color:#F4F4F4;
 border-radius: 15px;
 padding: 10px 10px;
 // gap: 20px;
+`;
+const Container1 = styled.div`
+width: 100%;
+margin-top: 20px;
+`;
+
+const TableHeader = styled.div`
+display: flex;
+justify-content: space-between;
+border-bottom: 1px solid #0000001F;
+padding: 5px 50px 5px 10px;
 `;
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -67,13 +79,49 @@ function MyOrderNavigation() {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <OrderTable />
+        <Container1>
+          <TableHeader>
+            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Order ID</Typography>
+            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Date</Typography>
+            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Price</Typography>
+            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Status</Typography>
+            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}> </Typography>
+          </TableHeader>
+          <OrderTableRow />
+          <OrderTableRow />
+          <OrderTableRow />
+          <OrderTableRow />
+        </Container1>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        Item Two
+        <Container1>
+          <TableHeader>
+            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Order ID</Typography>
+            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Date</Typography>
+            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Price</Typography>
+            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Status</Typography>
+            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}> </Typography>
+          </TableHeader>
+          <OrderTableRow />
+          <OrderTableRow />
+          <OrderTableRow />
+          <OrderTableRow />
+        </Container1>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        Item Three
+        <Container1>
+          <TableHeader>
+            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Order ID</Typography>
+            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Date</Typography>
+            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Price</Typography>
+            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Status</Typography>
+            <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}> </Typography>
+          </TableHeader>
+          <OrderTableRow />
+          <OrderTableRow />
+          <OrderTableRow />
+          <OrderTableRow />
+        </Container1>
       </CustomTabPanel>
     </Box>
   );
