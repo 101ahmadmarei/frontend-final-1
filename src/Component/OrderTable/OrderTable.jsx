@@ -18,17 +18,17 @@ padding: 5px 50px 5px 10px;
 function OrderTable() {
   return (
     <Container>
-        <TableHeader>
-            <Typography component={'p'} color={'textGray.main'} sx={{width:'80px'}}>Order ID</Typography>
-            <Typography component={'p'} color={'textGray.main'} sx={{width:'80px'}}>Date</Typography>
-            <Typography component={'p'} color={'textGray.main'} sx={{width:'80px'}}>Price</Typography>
-            <Typography component={'p'} color={'textGray.main'} sx={{width:'80px'}}>Status</Typography>
-            <Typography component={'p'} color={'textGray.main'} sx={{width:'80px'}}> </Typography>
-        </TableHeader>
-        <OrderTableRow/>
-        <OrderTableRow/>
-        <OrderTableRow/>
-        <OrderTableRow/>
+      <TableHeader>
+        <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Order ID</Typography>
+        <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Date</Typography>
+        <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Price</Typography>
+        <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}>Status</Typography>
+        <Typography component={'p'} color={'textGray.main'} sx={{ width: '80px' }}> </Typography>
+      </TableHeader>
+      <OrderTableRow />
+      <OrderTableRow />
+      <OrderTableRow />
+      <OrderTableRow />
     </Container>
   )
 }

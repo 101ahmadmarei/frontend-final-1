@@ -1,7 +1,8 @@
 import { useQuery } from "react-query";
 import instance from "./apiConfig";
 
-const getProducts = async (url) => {
+const getProducts = async () => {
+
     try {
         const result = await instance(url, {
             method: "GET",
