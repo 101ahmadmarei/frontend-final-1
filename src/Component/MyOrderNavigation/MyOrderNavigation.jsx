@@ -1,7 +1,12 @@
-import { Typography } from '@mui/material';
-import React from 'react'
-import styled from 'styled-components'
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import styled from 'styled-components';
 import CoralBtn from '../CoralBtn/CoralBtn';
+import OrderTable from '../OrderTable/OrderTable';
 
 const Container = styled.div`
 // width: 100%;
@@ -11,18 +16,67 @@ border-radius: 15px;
 padding: 10px 10px;
 // gap: 20px;
 `;
+function CustomTabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+CustomTabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
 
 function MyOrderNavigation() {
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
-    <Container>
-        {/* <Typography component={'p'} sx={{backgroundColor:'primary.main'}}>Completed</Typography>
-        <Typography component={'p'}>Processing</Typography>
-        <Typography component={'p'}>Cancelled</Typography> */}
-        <CoralBtn label={'Completed'} type={'contained'} />
-        <CoralBtn label={'Processing'}/>
-        <CoralBtn label={'Cancelled'}/>
-    </Container>
-  )
+
+    <Box sx={{ width: '100%' }}>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+          <Tab label="Completed" {...a11yProps(0)} />
+          <Tab label="Processing" {...a11yProps(1)} />
+          <Tab label="Cancelled" {...a11yProps(2)} />
+        </Tabs>
+      </Box>
+      <CustomTabPanel value={value} index={0}>
+        <OrderTable />
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={1}>
+        Item Two
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={2}>
+        Item Three
+      </CustomTabPanel>
+    </Box>
+  );
 }
 
 export default MyOrderNavigation

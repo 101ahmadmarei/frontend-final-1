@@ -5,8 +5,7 @@ import OrderTable from '../OrderTable/OrderTable'
 function MyOrders() {
   return (
     <div>
-        <MyOrderNavigation/>
-        <OrderTable/>
+      <MyOrderNavigation />
     </div>
   )
 }

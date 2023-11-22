@@ -1,5 +1,5 @@
 import React from 'react'
-import NewAddress from '../../Component/newAdress/newAddress'
+import NewAddress from '../../Component/newAdress/NewAddress'
 import CoralAccordion from '../../Component/CoralAccordion/CoralAccordion'
 import CheckoutSummary from '../../Component/checkoutSummary/CheckoutSummary'
 import Summary from '../../Component/summary/Summary'
@@ -15,7 +15,7 @@ function CheckOutPage() {
 
             <div className='summary-container'>
                 <CheckoutSummary />
-                <div style={{paddingTop:40}}>          
+                <div style={{ paddingTop: 40 }}>
                     <Summary title='Order Details' />
                 </div>
 
