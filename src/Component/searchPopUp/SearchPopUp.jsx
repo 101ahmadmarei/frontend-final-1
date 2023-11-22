@@ -19,7 +19,7 @@ function SearchPopUp(props) {
     return (
         <SearchPopUpContainer>
             {props.response.length ? props.response?.map((product) => {
-                return <SearchItem key={Math.random()} product={product}/> ;
+                return <div style={{paddingBottom:'5px'}}><SearchItem key={Math.random()} product={product}/> </div>;
             }) : <div>There no products</div>}
             
         </SearchPopUpContainer>

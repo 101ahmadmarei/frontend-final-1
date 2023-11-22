@@ -118,7 +118,14 @@ function Header() {
                     width='100%' 
                     isSearch={true} 
                     onChange={handleSearch} 
-                    value={searchQuery.get('searchQuery')? searchQuery.get('searchQuery') : ''}/>
+                    value={searchQuery.get('searchQuery')? searchQuery.get('searchQuery') : ''}
+                    press={(ev) => {
+                        console.log(`Pressed keyCode ${ev.key}`);
+                        if (ev.key === 'Enter') {
+                          handleNavigate(`/products?search_term=${ev.target.value}&offset=0&limit=20&type=Search`)
+                          ev.preventDefault();
+                        }
+                      }}/>
 
                     {searchQuery.get('searchQuery') && !search.isLoading && <SearchPopUp response={search.data.data.products}/> }
                 </SearchContainer>
@@ -126,7 +133,7 @@ function Header() {
                     {/* <CoralBtn type={'text'} label={<SvgIcon><Favourties/></SvgIcon>}/> */}
                     <IconBtn icon={<SvgIcon><Favourties /></SvgIcon>} ></IconBtn>
                     <IconBtn icon={<SvgIcon><User /></SvgIcon>} click={()=>{handleNavigate('/personalInformation')}}></IconBtn>
-                    <IconBtn icon={<SvgIcon><Cart /></SvgIcon>}></IconBtn>
+                    <IconBtn icon={<SvgIcon><Cart /></SvgIcon>} click={()=>{handleNavigate('/mycart')}}></IconBtn>
                 </BtnContainer>
             </SerachPopUpContainer>
 

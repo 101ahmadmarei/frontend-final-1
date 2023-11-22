@@ -16,6 +16,8 @@ grid-template-columns: repeat(3, 1fr);
 
 const BrandsContainer = styled.div`
 padding : 0 20px;
+max-width: 1440px;
+margin:auto;
 `;
 
 function Brand() {

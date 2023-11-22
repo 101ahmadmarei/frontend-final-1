@@ -147,7 +147,8 @@ export default function Details({ product }) {
     if (cookies.token) {
       addToCart(product.id, cookies.token, { "order_quantity": value })
         .then((result) => {
-          if (result === 'Unauthorized') {
+          if(result === 'Unauthorized' ){
+            removeCookie('token',{path:'/'})
             handleOpen()
           } else {
             navigate('/myCart')

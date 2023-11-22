@@ -10,7 +10,9 @@ import { useProducts } from '../../API/getNewArrivals';
 
 
 const NewArrivalscontainer = styled.div`
-padding: 0 20px
+padding: 0 20px;
+max-width: 1440px;
+margin:auto;
 `;
 
 const NewArrivalsHeader = styled.div`
@@ -48,7 +50,7 @@ const NewArrivals = () => {
         <NewArrivalscontainer>
             <NewArrivalsHeader>
                 <Typography sx={{fontSize:{xs:'18px',sm:'28px'}, fontWeight:600, color:'secondary.contrastText'}}>New Arrivals</Typography>
-                <CoralBtnIcon label={'View All'} type={'text'} color={'primary'} endIcon={<ArrowForwardIosOutlinedIcon />} click={handleNavigation}/>
+                <div><CoralBtnIcon label={'View All'} type={'text'} color={'primary'} endIcon={<ArrowForwardIosOutlinedIcon />} click={handleNavigation}/></div>
             </NewArrivalsHeader>
 
 

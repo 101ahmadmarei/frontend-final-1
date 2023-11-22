@@ -12,7 +12,7 @@ const style = {
     padding: '5px',
 }
 
-function TxtInput({ label, placeholder, type, width = '100%', isPassword = false, isSearch = false, register, value, onChange }) {
+function TxtInput({ label, placeholder, type, width = '100%', isPassword = false, isSearch = false, register, value, onChange ,press }) {
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -58,6 +58,7 @@ function TxtInput({ label, placeholder, type, width = '100%', isPassword = false
                 }
 
                 {...register}
+                onKeyDown={press}
             />
         </div>
     )

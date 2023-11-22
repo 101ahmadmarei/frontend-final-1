@@ -65,6 +65,7 @@ const Handpicked = () => {
 
     return (
         <HandpickedContainer>
+            <div style={{width:'100%', maxWidth:'1440px', margin:'auto'}}>
             <HandpickedTitle>Handpicked Collections</HandpickedTitle>
             <HandSection>
                 {categoriesQuery.data.data.categories.map((categoreis, index) => {
@@ -73,6 +74,7 @@ const Handpicked = () => {
                     </Image>
                 })}
             </HandSection>
+            </div>
         </HandpickedContainer>
     );
 };
