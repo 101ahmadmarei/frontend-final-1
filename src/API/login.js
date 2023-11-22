@@ -3,6 +3,7 @@ import instance from "./apiConfig";
 
 const login = async (data) => {
     try{
+        
         const uri = `/login`;
         const result = await instance(uri,{
             method: "POST",

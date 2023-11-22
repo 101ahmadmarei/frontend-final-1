@@ -1,26 +1,7 @@
-.item-summary-container{
-    display: flex;
-}
-.image-container{
-    width: 75px;
-    height: 75px;
-    border-radius: 10px;
-}
-
 .image{
    border-radius: 10px; 
 }
 
-.item-summary-data{
-    padding: 0 20px;
-}
-
-.item-summary-data > h1{
-    padding: 2px;
-    margin: 0;
-    font-size: 16px;
-    font-weight: 600;
-}
 
 .item-summary-data > p{
     margin: 0;

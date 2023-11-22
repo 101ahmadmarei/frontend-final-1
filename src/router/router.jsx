@@ -10,6 +10,8 @@ import CheckOutPage from "../pages/checkOutPage/checkOutPage";
 import MycartPage from "../pages/myCartPage/mycartPage";
 import PersonalPage from "../pages/PersonalPage/PersonalPage";
 import MyOrdersPage from "../pages/myOrdersPage/MyOrdersPage";
+import LayoutProfile from "../Component/Layout/LayoutProfile";
+import OrderPage from "../pages/OrderPage/OrderPage";
 
 export const router = createBrowserRouter([
     {
@@ -50,13 +52,23 @@ export const router = createBrowserRouter([
                         element: <MycartPage/>
                     }, 
                     {
-                        path:'personalInformation',
-                        element: <PersonalPage/>
+                        path:'/',
+                        element: <LayoutProfile/>,
+                        children: [
+                            {
+                                path:'personalInformation',
+                                element:<PersonalPage/>
+                            },
+                            {
+                                path:'personalInformation/myOrders',
+                                element:<MyOrdersPage/>
+                            },
+                            {
+                                path:'personalInformation/order/:orderId',
+                                element:<OrderPage/>
+                            }
+                        ]
                     },
-                    {
-                        path:'myOrders',
-                        element: <MyOrdersPage/>
-                    }
                 ]
             },
             // login
