@@ -1,6 +1,5 @@
 import React from 'react';
-import { Card, CardContent, CardMedia, Button, Typography } from '@mui/material';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import { Typography } from '@mui/material';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import CoralCard from '../Card/CoralCard';
 import CoralBtnIcon from '../CoralBtnIcon/CoralBtnIcon';
