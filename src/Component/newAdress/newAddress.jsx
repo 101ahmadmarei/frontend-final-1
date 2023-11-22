@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form';
 import { Grid } from '@mui/material';
 import TxtInput from '../textInput/textInput';
 import CoralBtn from '../CoralBtn/CoralBtn';
+
+
 function NewAddress() {
     const [value, setValue] = useState(1);
     const [open, setOpen] = useState(false);
@@ -30,8 +32,6 @@ function NewAddress() {
         });
     };
     return (
-
-
         <form onSubmit={handleSubmit(onSubmit)}>
             <Grid container spacing={4}>
                 <Grid item xs={6}>
