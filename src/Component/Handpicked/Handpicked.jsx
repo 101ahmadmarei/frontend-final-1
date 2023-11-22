@@ -45,7 +45,7 @@ const ImageTitle = styled.div`
     // padding: 270px 101px 16px 16px;
 `;
 const Image = styled(ImageContainer)`
-    background-image: url(${props => props.imageUrl}) ;
+    background-image: url(${props => props.imageurl}) ;
     background-repeat: no-repeat;
     background-size: 100% 100%;
 `;
@@ -68,7 +68,7 @@ const Handpicked = () => {
             <HandpickedTitle>Handpicked Collections</HandpickedTitle>
             <HandSection>
                 {categoriesQuery.data.data.categories.map((categoreis, index) => {
-                    return <Image key={index} imageUrl={categoreis.img} onClick={() => {handleHandPicked(categoreis.id)}}>
+                    return <Image key={index} imageurl={categoreis.img} onClick={() => {handleHandPicked(categoreis.id)}}>
                         <ImageTitle>{categoreis.name}</ImageTitle>
                     </Image>
                 })}

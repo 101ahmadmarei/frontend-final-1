@@ -25,7 +25,7 @@ function PageHeader(props) {
         <Container>
             <Typography sx={{ fontSize: '34px', fontWeight: 600, color: 'primary.main', paddingBottom:'20px' }}>{props.title}</Typography>
             {props.logoutBtn ?
-                <CoralBtnIcon label='Logout' type={'outlined'} icon={<LogoutOutlinedIcon />} />
+                <div><CoralBtnIcon label='Logout' type={'outlined'} icon={<LogoutOutlinedIcon /> } /></div>
                 : null}
 
             {props.searchFeild ?

@@ -11,16 +11,8 @@ gap: 10px
 
 function MyOrdersPage() {
     return (
-        <div>
-            <PageHeader title={'My Orders'} searchFeild={true} />
-
-            <FlexStyle>
-                <ProfileList />
-                <div style={{width:'100%'}}>
-                    <MyOrders/>
-                </div>
-            </FlexStyle>
-
+        <div style={{ width: '100%' }}>
+            <MyOrders />
         </div>
     )
 }
