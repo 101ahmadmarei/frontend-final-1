@@ -31,9 +31,7 @@ function Order() {
         return <p>Error fetching order details: {error.message}</p>;
     }
 
-    if (!data || !data.orders || data.orders.length === 0) {
-        return <p>No orders available</p>;
-    }
+
 
     return (
         <Container>
@@ -41,7 +39,7 @@ function Order() {
             <Typography component='p' sx={{ fontWeight: 600, width: '100%', borderBlockEnd: '1px solid', borderColor: 'secondary.main' }}>Order Information</Typography>
 
             <FlexStyle>
-                {data.orders.map((order) => (
+                {data.map((order) => (
                     <InfoContainer key={order.id}>
                         <Typography component={'p'} color={'textGray.main'}>Order Details</Typography>
                         <Typography component={'p'}>Order ID: {order.id}</Typography>
