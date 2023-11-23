@@ -7,7 +7,6 @@ import CoralBtn from '../../Component/CoralBtn/CoralBtn';
 import { MutateLogin } from '../../API/login';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
-import { async } from 'q';
 import { Cookies, useCookies } from 'react-cookie';
 import { redirect , useNavigate} from 'react-router';
 

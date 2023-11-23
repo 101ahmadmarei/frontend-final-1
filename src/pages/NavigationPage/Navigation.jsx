@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Productlist from '../../Component/Productlist/Productlist'
-import { Typography } from '@mui/material'
+import { CircularProgress, Typography } from '@mui/material'
 import styled from 'styled-components'
 import CoralPagination from '../../Component/CoralPagination/CoralPagination'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
@@ -20,7 +20,7 @@ function NavigationPage() {
     const productsQuery = useProducts(`/products${location.search}`);
 
 
-    if (productsQuery.isLoading) return <div>Loading...</div>
+    if (productsQuery.isLoading) return <div style={{textAlign:'center'}}><CircularProgress /> </div>
     if (productsQuery.error) {
         return <div>{productsQuery.error.message}</div>
     }

@@ -17,7 +17,7 @@ function DetailsPage() {
     const RetriveQuery = useRetriveData(id);
   
     if (RetriveQuery.isLoading)
-      return <div>Loading...</div>
+      return <div></div>
     if (RetriveQuery.error) {
       return <div>{RetriveQuery.error.message}</div>
     }
