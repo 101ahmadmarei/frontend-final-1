@@ -2,15 +2,15 @@ import { useQuery } from "react-query";
 import instance from "./apiConfig";
 
 const getProducts = async (url) => {
-    try{
-        const result = await instance(url,{
+    try {
+        const result = await instance(url, {
             method: "GET",
-            headers:{
+            headers: {
                 "content-type": "application/json",
             },
         })
         return result;
-    }catch (err){
+    } catch (err) {
         return err.response.data;
     }
 }
@@ -18,7 +18,7 @@ const getProducts = async (url) => {
 
 export const useProducts = (url) => {
     return useQuery({
-        queryKey: ["products","get",url],
+        queryKey: ["products", "get", url],
         queryFn: () => getProducts(url),
     })
 }

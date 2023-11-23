@@ -18,6 +18,7 @@ padding: 5px 50px 5px 10px;
 function OrderTable({orders}) {
   return (
     <Container>
+ 
         <TableHeader>
             <Typography component={'p'} color={'textGray.main'} sx={{width:'80px'}}>Order ID</Typography>
             <Typography component={'p'} color={'textGray.main'} sx={{width:'80px'}}>Date</Typography>
@@ -32,6 +33,7 @@ function OrderTable({orders}) {
         {/* <OrderTableRow/>
         <OrderTableRow/>
         <OrderTableRow/> */}
+ 
     </Container>
   )
 }
