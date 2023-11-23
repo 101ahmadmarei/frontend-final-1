@@ -2,7 +2,7 @@ import React from 'react';
 import ItemTable from '../itemTable/ItemTable';
 import styled from 'styled-components';
 import { Typography } from '@mui/material';
-import { useOrderDetails } from '../../API/getOrderDetails';
+import { useOrderDetails } from '../../API/getOrdersDetails';
 import { useParams } from 'react-router-dom';
 
 const Container = styled.div`
@@ -20,9 +20,9 @@ const InfoContainer = styled.div`
 
 function Order() {
     const { orderId } = useParams();
+    const { isLoading, isError, data, error } = useOrderDetails(orderId);
+    console.log('Data:', data);
 
-
-    const { isLoading, isError, data, error } = useOrderDetails(`/orders/${orderId}`);
     if (isLoading) {
         return <p>Loading...</p>;
     }
@@ -31,9 +31,8 @@ function Order() {
         return <p>Error fetching order details: {error.message}</p>;
     }
 
-
-    if (!data) {
-        return <p>No data available</p>;
+    if (!data || !data.orders || data.orders.length === 0) {
+        return <p>No orders available</p>;
     }
 
     return (
@@ -42,14 +41,16 @@ function Order() {
             <Typography component='p' sx={{ fontWeight: 600, width: '100%', borderBlockEnd: '1px solid', borderColor: 'secondary.main' }}>Order Information</Typography>
 
             <FlexStyle>
-                <InfoContainer>
-                    <Typography component={'p'} color={'textGray.main'}>Order Details</Typography>
-                    <Typography component={'p'}>Order ID: {data.id}</Typography>
-                    <Typography component={'p'}>Sub Total: {data.total_price}</Typography>
-                    <Typography component={'p'}>Discount: {data.total_discount}</Typography>
-                    <Typography component={'p'}>Delivery Fee: {data.delivery_fees}</Typography>
-                    <Typography component={'p'}>Grand Total: {data.grand_total}</Typography>
-                </InfoContainer>
+                {data.orders.map((order) => (
+                    <InfoContainer key={order.id}>
+                        <Typography component={'p'} color={'textGray.main'}>Order Details</Typography>
+                        <Typography component={'p'}>Order ID: {order.id}</Typography>
+                        <Typography component={'p'}>Sub Total: {order.total_price}</Typography>
+                        <Typography component={'p'}>Discount: {order.total_discount}</Typography>
+                        <Typography component={'p'}>Delivery Fee: {order.delivery_fees}</Typography>
+                        <Typography component={'p'}>Grand Total: {order.grand_total}</Typography>
+                    </InfoContainer>
+                ))}
 
                 <InfoContainer>
                     <Typography component={'p'} color={'textGray.main'}>Payment Details</Typography>
