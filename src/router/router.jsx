@@ -14,69 +14,69 @@ import LayoutProfile from "../Component/Layout/LayoutProfile";
 import OrderPage from "../pages/OrderPage/OrderPage";
 
 export const router = createBrowserRouter([
-    {
-        //homePage layout
-        element: <Layout />,
+  {
+    //homePage layout
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <LayoutHomeProduct />,
         children: [
-            {
-                path: '/',
-                element: <LayoutHomeProduct />,
-                children: [
-                    {
-                        path: '/',
-                        element: <HomePage />
-                    },
-                    {
-                        path: 'products',
-                        element: <NavigationPage />
-                    }
-                ]
-            },
-            //product details
-            {
-                path: '/productdetails/:id',
-                element: <DetailsPage />
-            },
-            //auth layout
-            {
-                path: '/',
-                element: <LayoutAuth/>,
-                loader: authLoader,
-                children: [
-                    {
-                        path:'checkout',
-                        element: <CheckOutPage/>
-                    },
-                    {
-                        path:'myCart',
-                        element: <MycartPage/>
-                    }, 
-                    {
-                        path:'/',
-                        element: <LayoutProfile/>,
-                        children: [
-                            {
-                                path:'personalInformation',
-                                element:<PersonalPage/>
-                            },
-                            {
-                                path:'personalInformation/myOrders',
-                                element:<MyOrdersPage/>
-                            },
-                            {
-                                path:'personalInformation/order/:orderId',
-                                element:<OrderPage/>
-                            }
-                        ]
-                    },
-                ]
-            },
-            // login
-            {
-                path: '/login',
-                loader:loginLoader,
-                element: <LoginPage />
-            },
-        ]
-    }
-])
+          {
+            path: "/",
+            element: <NavigationPage />,
+          },
+          {
+            path: "products",
+            element: <NavigationPage />,
+          },
+        ],
+      },
+      //product details
+      {
+        path: "/productdetails/:id",
+        element: <DetailsPage />,
+      },
+      //auth layout
+      {
+        path: "/",
+        element: <LayoutAuth />,
+        loader: authLoader,
+        children: [
+          {
+            path: "checkout",
+            element: <CheckOutPage />,
+          },
+          {
+            path: "myCart",
+            element: <MycartPage />,
+          },
+          {
+            path: "/",
+            element: <LayoutProfile />,
+            children: [
+              {
+                path: "personalInformation",
+                element: <PersonalPage />,
+              },
+              {
+                path: "personalInformation/myOrders",
+                element: <MyOrdersPage />,
+              },
+              {
+                path: "personalInformation/order/:orderId",
+                element: <OrderPage />,
+              },
+            ],
+          },
+        ],
+      },
+      // login
+      {
+        path: "/login",
+        loader: loginLoader,
+        element: <LoginPage />,
+      },
+    ],
+  },
+]);

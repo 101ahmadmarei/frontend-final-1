@@ -1,16 +1,16 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Carousal from '../../Component/Carousal/CoralCarousel';
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Carousal from "../../Component/Carousal/CoralCarousel";
 
 function LayoutHomeProduct() {
-    return (
-        <div>
-            <Carousal />
-            <main>
-                <Outlet />
-            </main>
-        </div>
-    )
+  return (
+    <div>
+      <Carousal />
+      <main>
+        <Outlet />
+      </main>
+    </div>
+  );
 }
 
-export default LayoutHomeProduct
+export default LayoutHomeProduct;
